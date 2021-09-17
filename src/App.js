@@ -5,6 +5,7 @@ import Search from "./Components/Search";
 import Header from "./Components/Header/Header";
 import { withAuth0 } from "@auth0/auth0-react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import FavBook from "./Components/FavBook/FavBook";
 function App() {
   return (
     <BrowserRouter>
@@ -13,6 +14,10 @@ function App() {
         <Switch>
           <Route exact path="/search">
             <Search />
+          </Route>
+
+          <Route exact path="/FavBook">
+            <FavBook />
           </Route>
         </Switch>
       </Profile>
