@@ -12,6 +12,11 @@ class Header extends Component {
       <div>
         {isAuthenticated ? <LogOut /> : <LogIn />}
         <Link to="/search">Search</Link>
+        {isAuthenticated ? (
+          <Link to="/FavBook">MY Books</Link>
+        ) : (
+          console.log("Please Sign In")
+        )}
       </div>
     );
   }
