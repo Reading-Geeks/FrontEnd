@@ -49,16 +49,16 @@ class Donate extends Component {
     const url = `http://localhost:3333/donate/?email=${email}`;
 
     axios
-    .get(url)
-    .then(result =>{
-      const resultData = result.data;
-      if(this.state.booksArray){
-        this.setState({
-          booksArray: resultData,
-        })
-      }
-    })
-    .catch(err => console.log(err))
+      .get(url)
+      .then((result) => {
+        const resultData = result.data;
+        if (this.state.booksArray) {
+          this.setState({
+            booksArray: resultData,
+          });
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   /*----------------------------------------------------------------------------------------------------------------- */
@@ -123,6 +123,19 @@ class Donate extends Component {
     });
   };
 
+  addDonateToFav = (booksArray) => {
+    axios
+      .post(`http://localhost:3333/addDonateData`, booksArray)
+      .then((result) => {
+        console.log(result);
+        // this.setState({
+        //   booksArray: result.data,
+        // });
+      })
+      .catch((err) => {
+        console.log("Error on adding data");
+      });
+  };
   render() {
     const { user } = this.props.auth0;
     return (
@@ -136,6 +149,7 @@ class Donate extends Component {
                 item={item}
                 showUpdateForm={this.showUpdateForm}
                 deleteBook={this.deleteBook}
+                addDonateToFav={this.addDonateToFav}
               />
             );
           })}
