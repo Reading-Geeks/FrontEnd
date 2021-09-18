@@ -11,6 +11,10 @@ import Donate from "./Components/donate/Donate";
 import { withAuth0 } from "@auth0/auth0-react";
 import { useAuth0 } from '@auth0/auth0-react';
 
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import Homepage from "./Components/Homepage";
+import FavBook from "./Components/FavBook/FavBook";
 function App() {
   const { isAuthenticated } = useAuth0();
   // console.log(isAuthenticated);
@@ -19,12 +23,19 @@ function App() {
       <Profile>
         <Header />
         <Switch>
+        <Route exact path="/">
+          <Homepage />
+            </Route>
           <Route exact path="/search">
             <Search />
           </Route>
-
           <Route exact path="/donate">
             {isAuthenticated && <Donate />}
+          </Route>
+
+
+          <Route exact path="/FavBook">
+            <FavBook />
           </Route>
 
         </Switch>
