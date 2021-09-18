@@ -7,7 +7,7 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import RenderData from "./RenderData";
-// import RenderDonate from "./RenderDonate";
+import RenderDonate from "./RenderDonate";
 class FavBook extends React.Component {
   constructor(props) {
     super(props);
@@ -155,7 +155,7 @@ class FavBook extends React.Component {
           </Modal.Footer>
         </Modal>
         <RenderData />
-        {/* <RenderDonate /> */}
+        <RenderDonate />
       </>
     );
   }

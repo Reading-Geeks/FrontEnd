@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import {Card, Button} from 'react-bootstrap';
-
+import { Card, Button } from "react-bootstrap";
 
 class AddBookCard extends Component {
   render() {
@@ -14,9 +13,27 @@ class AddBookCard extends Component {
             <Card.Title>{this.props.item.author}</Card.Title>
             <Card.Title>{this.props.item.publishedDate}</Card.Title>
 
-            <Button variant="primary" onClick={()=>this.props.showUpdateForm(this.props.item)}> 📝 </Button>
-            <Button variant="primary"> ⭐️ </Button>
-            <Button variant="primary" onClick={()=> this.props.deleteBook(this.props.item._id)}> 🗑️ </Button>
+            <Button
+              variant="primary"
+              onClick={() => this.props.showUpdateForm(this.props.item)}
+            >
+              {" "}
+              📝{" "}
+            </Button>
+            <Button
+              variant="primary"
+              onClick={() => this.props.addDonateToFav(this.props.item)}
+            >
+              {" "}
+              ⭐️{" "}
+            </Button>
+            <Button
+              variant="primary"
+              onClick={() => this.props.deleteBook(this.props.item._id)}
+            >
+              {" "}
+              🗑️{" "}
+            </Button>
           </Card.Body>
         </Card>
       </div>
