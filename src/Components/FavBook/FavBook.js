@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
-
 import Modal from "react-bootstrap/Modal";
 class FavBook extends React.Component {
   constructor(props) {
@@ -21,12 +20,38 @@ class FavBook extends React.Component {
   componentDidMount = () => {
     const { user } = this.props.auth0;
     const email = user.email;
+    // console.log(email);
     axios
       .get(`http://localhost:3333/userInfo?email=${email}`)
       .then((result) => {
-        this.setState({
-          obj: result.data,
-        });
+        if (result.data.length === 0) {
+          console.log("hi");
+          const obj = {
+            name: user.name,
+            email: email,
+            finishedBooks: "finishedBooks",
+            categoriesOfInterest: "finishedBooks",
+          };
+
+          axios
+            .post(`http://localhost:3333/addinfo`, obj)
+            .then((result) => {
+              this.setState({
+                obj: result.data,
+                finishedBooks: result.data[0].finishedBooks,
+                categoriesOfInterest: result.data[0].categoriesOfInterest,
+              });
+            })
+            .catch((err) => {
+              console.log("Error on adding data");
+            });
+        } else {
+          this.setState({
+            obj: result.data,
+            finishedBooks: result.data[0].finishedBooks,
+            categoriesOfInterest: result.data[0].categoriesOfInterest,
+          });
+        }
       })
       .catch((err) => {
         console.log("error");
@@ -44,9 +69,6 @@ class FavBook extends React.Component {
   };
   updateUser = (event) => {
     event.preventDefault();
-    const { user } = this.props.auth0;
-    console.log(user);
-    const email = user.email;
     const obj = {
       name: event.target.name.value,
       email: event.target.email.value,
@@ -54,11 +76,13 @@ class FavBook extends React.Component {
       categoriesOfInterest: event.target.categoriesOfInterest.value,
     };
     axios
-      .put(`http://localhost:3333/updateUser?email=${email}`, obj)
+      .put(`http://localhost:3333/updateUser/${this.state.obj[0]._id}`, obj)
       .then((result) => {
         this.setState({
           obj: result.data,
           showFlag: false,
+          finishedBooks: result.data[0].finishedBooks,
+          categoriesOfInterest: result.data[0].categoriesOfInterest,
         });
       })
       .catch((err) => {
@@ -76,11 +100,9 @@ class FavBook extends React.Component {
             <Card.Title></Card.Title>
             <Card.Text>Name: {user.name}</Card.Text>
             <Card.Text>Email: {user.email}</Card.Text>
+            <Card.Text>Finished Books: {this.state.finishedBooks}</Card.Text>
             <Card.Text>
-              Finished Books: {this.state.obj.finishedBooks}
-            </Card.Text>
-            <Card.Text>
-              Categories of Interest: {this.state.obj.categoriesOfInterest}
+              Categories of Interest: {this.state.categoriesOfInterest}
             </Card.Text>
             <Button variant="warning" onClick={this.showUpdateFormModal}>
               Update
