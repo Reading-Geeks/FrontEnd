@@ -15,6 +15,8 @@ class AddForm extends Component {
       // publishedDate: "",
     };
   }
+  
+  /*--------------------------------------------------Add (POST) Book---------------------------------------------------- */
 
   addBook = (e) => {
     e.preventDefault();
@@ -42,6 +44,9 @@ class AddForm extends Component {
       })
       .catch((err) => console.log(err));
   };
+
+  /*----------------------------------------------------------------------------------------------------------------- */
+
 
   render() {
     return (
