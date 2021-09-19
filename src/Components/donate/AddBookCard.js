@@ -11,10 +11,11 @@ class AddBookCard extends Component {
         <Card style={{ width: "18rem" }}>
           <Card.Body>
             <Card.Title>{this.props.item.title}</Card.Title>
-            <Card.Title>{this.props.item.description}</Card.Title>
-            <Card.Title>{this.props.item.category}</Card.Title>
-            <Card.Title>{this.props.item.author}</Card.Title>
-            <Card.Title>{this.props.item.publishedDate}</Card.Title>
+            <Card.Text>{this.props.item.description}</Card.Text>
+            <Card.Text>{this.props.item.category}</Card.Text>
+            <Card.Text>{this.props.item.author}</Card.Text>
+            <Card.Img variant="top" src={this.props.item.image} />
+            <Card.Text>{this.props.item.publishedDate}</Card.Text>
 
             {isAuthenticated && email === this.props.item.email ?  (
               <Button

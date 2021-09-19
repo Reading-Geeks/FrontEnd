@@ -21,7 +21,7 @@ class AddForm extends Component {
   addBook = (e) => {
     e.preventDefault();
     const { user } = this.props.auth0;
-    const email = user.email;
+    const email = user?.email;
     const url = `http://localhost:3333/donate`;
     // const url = `https://reading-geeks.herokuapp.com/donate`;
 
@@ -30,16 +30,17 @@ class AddForm extends Component {
       description: e.target.description.value,
       category: e.target.category.value,
       author: e.target.author.value,
+      image: e.target.image.value,
       publishedDate: e.target.publishedDate.value,
       email: email,
     };
-    // console.log(obj);
+    console.log(obj);
 
     axios
       .post(url, obj)
       .then((result) => {
         const resultData = result.data;
-        console.log(resultData);
+        // console.log(resultData);
         this.props.newBook(resultData);
       })
       .catch((err) => console.log(err));
@@ -85,6 +86,15 @@ class AddForm extends Component {
               type="text"
               name="author"
               placeholder="Enter Book Author"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicImage">
+            <Form.Label>Book Image</Form.Label>
+            <Form.Control
+              type="text"
+              name="image"
+              placeholder="Enter Book Image Link"
             />
           </Form.Group>
 

@@ -47,6 +47,15 @@ class UpdateBook extends Component {
                 />
               </Form.Group>
 
+              <Form.Group className="mb-3" controlId="formBasicImage">
+                <Form.Label>Image:</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="image"
+                  defaultValue={this.props.image}
+                />
+              </Form.Group>
+
               <Form.Group className="mb-3" controlId="formBasicPublishedDate">
                 <Form.Label>Published Date:</Form.Label>
                 <Form.Control
