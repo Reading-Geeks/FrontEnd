@@ -20,14 +20,17 @@ class Donate extends Component {
       author: "",
       publishedDate: "",
       id: "",
+      searchBooks: [],
+      // searchTerm: "" ,
     };
   }
 
   newBook = (newData) => {
-    this.setState({
-      booksArray: newData,
+    this.read()
+    // this.setState({
+    //   booksArray: newData,
       // showCard: true,
-    });
+    // });
   };
 
   showUpdateForm = (item) => {
@@ -43,22 +46,42 @@ class Donate extends Component {
   };
 
   /*-------------------------------------------------componentDidMount----------------------------------------------------- */
-  componentDidMount = () => {
-    const { user } = this.props.auth0;
-    const email = user?.email;
-    const url = `http://localhost:3333/donate?email=${email}`;
+  read = () => {
+    const { isAuthenticated } = this.props.auth0;
+    Promise.all([
+      axios.get(`http://localhost:3333/donate`),
+      isAuthenticated &&
+        axios.get(
+          `http://localhost:3333/readDonateData?email=${this.props.auth0.user.email}`
+        ),
+    ])
 
-    axios
-      .get(url)
-      .then((result) => {
-        const resultData = result.data;
-        if (this.state.booksArray) {
-          this.setState({
-            booksArray: resultData,
+      .then(([finalresult, favdonateres]) => {
+        console.log(finalresult.data);
+        console.log(favdonateres.data);
+
+        if (!isAuthenticated || favdonateres?.data?.length === 0)
+          return this.setState({ booksArray: finalresult.data });
+        else {
+          // console.log("hi")
+          const searchBooks = [...finalresult.data];
+          console.log(searchBooks);
+          searchBooks.filter(({ title }, i) => {
+            const newFav = favdonateres.data.filter(
+              ({ title: favId }) => favId === title
+            );
+            return newFav.length > 0
+              ? searchBooks.splice(i, 1, ...newFav)
+              : null;
           });
+
+          this.setState({ booksArray: searchBooks });
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
+  };
+  componentDidMount = () => {
+    this.read();
   };
 
   /*----------------------------------------------------------------------------------------------------------------- */
@@ -84,12 +107,13 @@ class Donate extends Component {
     axios
       .put(url, obj)
       .then((result) => {
-        const resultData = result.data;
-        console.log(resultData);
-        this.setState({
-          booksArray: resultData,
-          showModal: false,
-        });
+        // const resultData = result.data;
+        // console.log(resultData);
+        // this.setState({
+        //   booksArray: resultData,
+        //   showModal: false,
+        // });
+        this.read();
       })
       .catch((err) => console.log("Error while updating the data"));
   };
@@ -108,9 +132,10 @@ class Donate extends Component {
       .then((result) => {
         const resultData = result.data;
         // console.log(resultData);
-        this.setState({
-          booksArray: resultData,
-        });
+        // this.setState({
+        //   booksArray: resultData,
+        // });
+        this.read();
       })
       .catch((err) => console.log("Error while deleting the data"));
   };
@@ -126,13 +151,17 @@ class Donate extends Component {
   /*-----------------------------------------------------add Donate To Fav------------------------------------------- */
 
   addDonateToFav = (booksArray) => {
-    
+    const { user } = this.props.auth0;
+    const email = user.email;
+    const booksArray1 = { ...booksArray, takenemail: email, isFav: true };
+    console.log(booksArray1);
     axios
-      .post(`http://localhost:3333/addDonateData`, booksArray)
+      .post(`http://localhost:3333/addDonateData`, booksArray1)
       .then((result) => {
         console.log(result);
         // this.setState({
         //   booksArray: result.data,
+        this.read();
         // });
       })
       .catch((err) => {
@@ -144,9 +173,13 @@ class Donate extends Component {
 
   render() {
     const { user } = this.props.auth0;
+    {
+      console.log(this.state.booksArray);
+    }
     return (
       <div>
-        <AddForm newBook={this.newBook} />
+        <AddForm newBook={this.newBook}
+        read={this.read} />
 
         <Row xs={1} md={5} className="g-4">
           {this.state.booksArray.map((item) => {
