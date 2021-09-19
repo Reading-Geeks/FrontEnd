@@ -25,6 +25,7 @@ class Search extends Component {
           const myFavBooks = favRes.data.filter(({ id }) => {
             return searchBooks.some(({ id: favId }) => favId === id);
           });
+          console.log(myFavBooks)
           const finalArr = [...notInFav, ...myFavBooks];
           this.setState({ searchBooks: finalArr });
         }
