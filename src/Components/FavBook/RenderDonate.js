@@ -19,7 +19,7 @@ class RenderDonate extends React.Component {
     const email = user.email;
     // console.log(email);
     axios
-      .get(`http://localhost:3333/readDonateData?email=${email}`)
+      .get(`http://localhost:3333/readDonateData2?email=${email}`)
       .then((result) => {
         this.setState({
           obj: result.data,
