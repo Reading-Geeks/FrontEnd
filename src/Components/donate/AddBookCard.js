@@ -19,6 +19,7 @@ class AddBookCard extends Component {
 
             {isAuthenticated && email === this.props.item.email ?  (
               <Button
+              disabled={this.props.item.isFav ? true : false}
                 variant="primary"
                 onClick={() => this.props.showUpdateForm(this.props.item)}
               >
@@ -27,18 +28,21 @@ class AddBookCard extends Component {
               </Button>
             ) : console.log('you can not edit')}
 
-            {isAuthenticated && (
+            {isAuthenticated && email !== this.props.item.email ? (
               <Button
+              
+              disabled={this.props.item.isFav ? true : false}
                 variant="primary"
                 onClick={() => this.props.addDonateToFav(this.props.item)}
               >
                 {" "}
                 ⭐️{" "}
               </Button>
-            )}
+            ): console.log('you can not edit')}
 
             {isAuthenticated &&  email === this.props.item.email ? (
               <Button
+              disabled={this.props.item.isFav ? true : false}
                 variant="primary"
                 onClick={() => this.props.deleteBook(this.props.item._id)}
               >
