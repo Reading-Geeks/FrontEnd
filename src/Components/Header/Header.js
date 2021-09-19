@@ -21,6 +21,10 @@ class Header extends Component {
         ) : (
           console.log("Please Sign In")
         )}
+        <Link to="/abotus">About Us</Link>
+
+
+
       </div>
     );
   }
