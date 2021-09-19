@@ -18,6 +18,7 @@ class Donate extends Component {
       description: "",
       category: "",
       author: "",
+      image:"",
       publishedDate: "",
       id: "",
     };
@@ -37,6 +38,7 @@ class Donate extends Component {
       description: item.description,
       category: item.category,
       author: item.author,
+      image: item.image,
       publishedDate: item.publishedDate,
       id: item._id,
     });
@@ -74,6 +76,7 @@ class Donate extends Component {
       description: e.target.description.value,
       category: e.target.category.value,
       author: e.target.author.value,
+      image: e.target.image.value,
       publishedDate: e.target.publishedDate.value,
       email: email,
       // id: this.state.id,
@@ -168,6 +171,7 @@ class Donate extends Component {
           description={this.state.description}
           category={this.state.category}
           author={this.state.author}
+          image={this.state.image}
           publishedDate={this.state.publishedDate}
         />
       </div>
