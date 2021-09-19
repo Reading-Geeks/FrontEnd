@@ -1,6 +1,35 @@
 import React, { Component } from "react";
-import { Col, Card, Button } from "react-bootstrap";
+import { Col, Card, Button, Popover, OverlayTrigger } from "react-bootstrap";
 export class RenderCards extends Component {
+  popOver = () => {
+    return (
+      <OverlayTrigger
+        trigger="click"
+        placement="right"
+        overlay={
+          <Popover id="popover-basic">
+            <Popover.Header
+              style={{
+                backgroundColor: "red",
+              }}
+              as="h3"
+            >
+              wrong
+            </Popover.Header>
+            <Popover.Body
+              style={{
+                backgroundColor: "red",
+              }}
+            >
+              Please <strong>LogIn</strong>
+            </Popover.Body>
+          </Popover>
+        }
+      >
+        <Button variant="success">Click me to see</Button>
+      </OverlayTrigger>
+    );
+  };
   render() {
     return this.props?.searchBooks?.map((item) => {
       return (
@@ -21,19 +50,23 @@ export class RenderCards extends Component {
               <Card.Text style={{ overflowY: "scroll" }}>
                 {/* {item.description || "No description"} */}
               </Card.Text>
-              <Button
-                onClick={() =>
-                  this.props.addToFav({
-                    ...item,
-                    isFav: true,
-                    email: this.props.email,
-                  })
-                }
-                variant={item.isFav ? "danger" : "success"}
-                disabled={item.isFav ? true : false}
-              >
-                Add To Favours{" "}
-              </Button>
+              {this.props.isAuthenticated ? (
+                <Button
+                  onClick={() =>
+                    this.props.addToFav({
+                      ...item,
+                      isFav: true,
+                      email: this.props.email,
+                    })
+                  }
+                  variant={item.isFav ? "danger" : "success"}
+                  disabled={item.isFav ? true : false}
+                >
+                  Add To Favours{" "}
+                </Button>
+              ) : (
+                this.popOver()
+              )}
             </Card.Body>
           </Card>
         </Col>

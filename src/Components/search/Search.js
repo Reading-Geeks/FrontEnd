@@ -6,27 +6,27 @@ import axios from "axios";
 class Search extends Component {
   state = { searchBooks: [], searchTerm: "" };
   getSearchResult = (search) => {
+    const { isAuthenticated } = this.props.auth0;
     Promise.all([
       axios.get(`http://localhost:3333/search?q=${search}`),
-      axios.get(
-        `http://localhost:3333/readData?email=${this.props.auth0.user.email}`
-      ),
+      isAuthenticated &&
+        axios.get(
+          `http://localhost:3333/readData?email=${this.props.auth0.user.email}`
+        ),
     ])
       .then(([search, favRes]) => {
-        console.log("favRes", favRes);
-        console.log("search", search);
-        if (favRes.data.length === 0)
+        if (!isAuthenticated || favRes?.data?.length === 0)
           return this.setState({ searchBooks: search.data });
         else {
           const searchBooks = [...search.data];
-          const notInFav = searchBooks.filter(({ id }) => {
-            return !favRes.data.some(({ id: favId }) => favId === id);
+          searchBooks.filter(({ id }, i) => {
+            const newFav = favRes.data.filter(({ id: favId }) => favId === id);
+            return newFav.length > 0
+              ? searchBooks.splice(i, 1, ...newFav)
+              : null;
           });
-          const myFavBooks = favRes.data.filter(({ id }) => {
-            return searchBooks.some(({ id: favId }) => favId === id);
-          });
-          const finalArr = [...notInFav, ...myFavBooks];
-          this.setState({ searchBooks: finalArr });
+
+          this.setState({ searchBooks: searchBooks });
         }
       })
       .catch((err) => console.error(err));
@@ -40,15 +40,12 @@ class Search extends Component {
       .catch((err) => console.error(err));
   };
   render() {
-    console.log(this.state.searchBooks);
-    const { user } = this.props.auth0;
-    console.log(user);
     return (
       <>
         <Form
           onSubmit={(e) => {
             e.preventDefault();
-            console.log(e.target.search.value);
+
             this.getSearchResult(e.target.search.value);
             this.setState({ searchTerm: e.target.search.value });
           }}
@@ -69,7 +66,8 @@ class Search extends Component {
           <RenderCards
             searchBooks={this.state.searchBooks}
             addToFav={this.addToFav}
-            email={this.props.auth0.user.email}
+            email={this.props.auth0?.user?.email}
+            isAuthenticated={this.props.auth0?.isAuthenticated}
           />
         </Row>
       </>
