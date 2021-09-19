@@ -45,8 +45,8 @@ class Donate extends Component {
   /*-------------------------------------------------componentDidMount----------------------------------------------------- */
   componentDidMount = () => {
     const { user } = this.props.auth0;
-    const email = user.email;
-    const url = `http://localhost:3333/donate/?email=${email}`;
+    const email = user?.email;
+    const url = `http://localhost:3333/donate?email=${email}`;
 
     axios
       .get(url)
@@ -67,7 +67,7 @@ class Donate extends Component {
   updateBook = (e) => {
     e.preventDefault();
     const { user } = this.props.auth0;
-    const email = user.email;
+    const email = user?.email;
 
     const obj = {
       title: e.target.title.value,
@@ -99,7 +99,7 @@ class Donate extends Component {
 
   deleteBook = (id) => {
     const { user } = this.props.auth0;
-    const email = user.email;
+    const email = user?.email;
 
     const url = `http://localhost:3333/donate/${id}?email=${email}`;
 
@@ -123,6 +123,8 @@ class Donate extends Component {
     });
   };
 
+  /*-----------------------------------------------------add Donate To Fav------------------------------------------- */
+
   addDonateToFav = (booksArray) => {
     axios
       .post(`http://localhost:3333/addDonateData`, booksArray)
@@ -136,6 +138,9 @@ class Donate extends Component {
         console.log("Error on adding data");
       });
   };
+
+  /*----------------------------------------------------------------------------------------------------------------- */
+
   render() {
     const { user } = this.props.auth0;
     return (

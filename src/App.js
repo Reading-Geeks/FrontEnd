@@ -24,7 +24,7 @@ function App() {
             <Search />
           </Route>
           <Route exact path="/donate">
-            {isAuthenticated && <Donate />}
+            <Donate />
           </Route>
 
           <Route exact path="/FavBook">
