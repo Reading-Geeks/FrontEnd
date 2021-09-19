@@ -47,8 +47,8 @@ class AddForm extends Component {
 
   /*----------------------------------------------------------------------------------------------------------------- */
 
-
   render() {
+
     return (
       <div>
         <Form onSubmit={this.addBook}>
