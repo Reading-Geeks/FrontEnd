@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap");
+
+* {
+  background-color: #eeebdd;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  width: 98%;
+}
+
+.formDiv {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+.responsiveImage {
+  margin-bottom: 100px;
+  /* box-shadow: 0 -5px 3px -3px black, 0 5px 3px -3px; */
+  box-shadow: 0 -5px 30px -10px black, 0 7px 30px -3px black;
+}
+.firstSentence{
+    font-family: "Cairo", sans-serif;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 100px;
+    margin-top: 100px;
+    text-align: center;
+    line-height: 2.2;
+}
+.secondSentence{
+    font-family: "Cairo", sans-serif;
+    margin-left: 100px;
+    margin-right: 100px;
+    /* margin-bottom: 100px; */
+    /* margin-top: 20px; */
+    text-align: center;
+    line-height: 1.4;
+}
+b{
+    color: #810000;
+}
+.p-2 {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  margin-left: 10%;
+  width: 40%;
+  border: dotted black 1px;
+  font-family: "Cairo", sans-serif;
+  color: #810000;
+  flex-direction: row;
+  box-shadow: 0 -5px 30px -10px black, 0 7px 30px -3px black;
+}
+
+.img-thumbnail {
+  margin-top: 50px;
+  margin-left: 160px;
+  display: flex;
+  height: 46rem;
+  width: 28rem;
+  box-shadow: 0 -5px 30px -10px black, 0 7px 30px -3px black;
+  /* width: 100px; */
+}
+
+.firstLabel {
+  margin-top: 30px;
+}
+
+/*-----------------------------------------Donate Button------------------------------------------*/
+.submit {
+  background-color: #eeebdd;
+  transform: translate(-50%, -50%);
+  color: #810000 !important;
+  text-decoration: none;
+  font-size: 2em;
+  display: inline-block;
+  font-family: "Cairo", sans-serif;
+  text-transform: uppercase;
+  padding: 0 3rem;
+  height: 1.8em;
+  border: 2px solid #810000 !important;
+  transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+  margin-top: 40px;
+  margin-left: 50%;
+}
+.submit::before {
+  background-color: #eeebdd;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #810000 !important;
+  color: #810000 !important;
+  transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+
+  z-index: -1;
+}
+.submit::after {
+  content: "";
+  display: inline-block;
+  background-image: url("./image/white-arrow-png-41947.png");
+  position: absolute;
+  top: 0;
+  left: calc(100% - 3em);
+  transform: scale(0.8);
+  right: 3em;
+  bottom: 0;
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.submit:hover {
+  background-color: #eeebdd;
+  padding: 0.05em 3.5em 0.08em 0.5em;
+  height: 1.8em;
+  color: #810000 !important;
+  border: 2px solid #810000 !important;
+}
+.submit:hover::before {
+  left: calc(100% - 3em);
+  right: 0;
+  transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.submit:hover::after {
+  right: 0;
+  transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+/*--------------------------------------------------------------------------------------------*/
