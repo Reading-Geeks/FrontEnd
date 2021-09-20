@@ -26,7 +26,7 @@ class AddBookCard extends Component {
                 {" "}
                 📝{" "}
               </Button>
-            ) : console.log('you can not edit')}
+            ) : null}
 
             {isAuthenticated && email !== this.props.item.email ? (
               <Button
@@ -38,7 +38,7 @@ class AddBookCard extends Component {
                 {" "}
                 ⭐️{" "}
               </Button>
-            ): console.log('you can not edit')}
+            ):null}
 
             {isAuthenticated &&  email === this.props.item.email ? (
               <Button
@@ -49,7 +49,7 @@ class AddBookCard extends Component {
                 {" "}
                 🗑️{" "}
               </Button>
-            ) : console.log('you can not delete')}
+            ) : null}
           </Card.Body>
         </Card>
       </div>

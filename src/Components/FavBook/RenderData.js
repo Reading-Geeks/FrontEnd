@@ -1,9 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import axios from "axios";
-import Row from "react-bootstrap/Row";
+import {Row,Button,Card} from "react-bootstrap/";
 import { withAuth0 } from "@auth0/auth0-react";
 class RenderData extends React.Component {
   constructor(props) {
@@ -17,7 +15,7 @@ class RenderData extends React.Component {
   componentDidMount = () => {
     const { user } = this.props.auth0;
     const email = user.email;
-    // console.log(email);
+
     axios
       .get(`http://localhost:3333/readData?email=${email}`)
       .then((result) => {
@@ -32,7 +30,7 @@ class RenderData extends React.Component {
   deleteBook = (id) => {
     const { user } = this.props.auth0;
     const email = user.email;
-    console.log(id);
+    
     axios
       .delete(`http://localhost:3333/removeData/${id}?email=${email}`)
       .then((result) => {

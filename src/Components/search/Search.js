@@ -3,6 +3,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import { Form, InputGroup, FormControl, Row } from "react-bootstrap";
 import RenderCards from "./RenderCards";
 import axios from "axios";
+import "./Search.css";
 class Search extends Component {
   state = { searchBooks: [], searchTerm: "" };
   getSearchResult = (search) => {
@@ -42,27 +43,27 @@ class Search extends Component {
   render() {
     return (
       <>
-        <Form
-          onSubmit={(e) => {
-            e.preventDefault();
-
-            this.getSearchResult(e.target.search.value);
-            this.setState({ searchTerm: e.target.search.value });
-          }}
-        >
-          <Form.Label htmlFor="inlineFormInputGroupUsername" visuallyHidden>
-            Search
-          </Form.Label>
-          <InputGroup>
-            <InputGroup.Text>🔍</InputGroup.Text>
-            <FormControl
-              id="inlineFormInputGroupUsername"
-              placeholder="Search Term"
+        <div class="box">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              this.getSearchResult(e.target.search.value);
+              this.setState({ searchTerm: e.target.search.value });
+            }}
+          >
+            <input
+              type="text"
+              class="input"
               name="search"
+              onMouseOutCapture={(e) => {
+                e.target.value = "";
+              }}
             />
-          </InputGroup>
-        </Form>
-        <Row>
+          </form>
+          <i class="fas fa-search"></i>
+        </div>
+
+        <Row className="my-card g-4" xs={1} md={5}>
           <RenderCards
             searchBooks={this.state.searchBooks}
             addToFav={this.addToFav}
