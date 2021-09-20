@@ -1,11 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
+import {Form,Modal,Button,Card} from "react-bootstrap/";
 import RenderData from "./RenderData";
 import RenderDonate from "./RenderDonate";
 class FavBook extends React.Component {
@@ -22,12 +19,10 @@ class FavBook extends React.Component {
   componentDidMount = () => {
     const { user } = this.props.auth0;
     const email = user.email;
-    // console.log(email);
     axios
       .get(`http://localhost:3333/userInfo?email=${email}`)
       .then((result) => {
         if (result.data.length === 0) {
-          console.log("hi");
           const obj = {
             name: user.name,
             email: email,
@@ -96,7 +91,6 @@ class FavBook extends React.Component {
     const { user } = this.props.auth0;
     return (
       <>
-        <h1>Hello</h1>
         <Card>
           <Card.Body>
             <Card.Title></Card.Title>
@@ -133,7 +127,7 @@ class FavBook extends React.Component {
                   <Form.Control
                     type="text"
                     name="finishedBooks"
-                    defaultvalue={this.state.obj.finishedBooks}
+                    defaultValue={this.state.obj.finishedBooks}
                   />
                 </pre>
                 <pre>
@@ -141,7 +135,7 @@ class FavBook extends React.Component {
                   <Form.Control
                     type="text"
                     name="categoriesOfInterest"
-                    defaultvalue={this.state.obj.categoriesOfInterest}
+                    defaultValue={this.state.obj.categoriesOfInterest}
                   />
                 </pre>
               </Modal.Body>
