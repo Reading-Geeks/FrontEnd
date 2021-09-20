@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.my-card {
+  /* width: 90% !important;
+  margin: auto !important; */
+  transform: scaleX(0.95);
+  width: 100%;
+  margin: -25px;
+}
+.submit {
+  position: relative;
+  bottom: -20px;
+  left: 50%;
+  background-color: #ededed;
+  transform: translate(-50%, -50%);
+  color: #810000 !important;
+  text-decoration: none;
+  font-size: 2em;
+  display: inline-block;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  padding: 0 3rem;
+  height: 1.8em;
+  border: 2px solid #810000 !important;
+  transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.submit::before {
+  background-color: #ededed;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #ce1212 !important;
+  color: #ce1212 !important;
+  transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+
+  z-index: -1;
+}
+.submit::after {
+  content: "";
+  display: inline-block;
+  background-image: url("../../Assets/white-arrow-png-41947.png");
+  position: absolute;
+  top: 0;
+  left: calc(100% - 3em);
+  transform: scale(0.8);
+  right: 3em;
+  bottom: 0;
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.submit:hover {
+  background-color: #ededed;
+  padding: 0.05em 3.5em 0.08em 0.5em;
+  height: 1.8em;
+  color: #ce1212 !important;
+  border: 2px solid #ce1212 !important;
+}
+.submit:hover::before {
+  left: calc(100% - 3em);
+  right: 0;
+  transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.submit:hover::after {
+  right: 0;
+  transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+figure {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 365px;
+  height: 550px;
+  border-radius: 15px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  transform: scale(0.8, 0.8);
+}
+
+figure:hover {
+  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */
+}
+figure:hover img {
+  transform: scale(1.25);
+}
+figure:hover figcaption {
+  bottom: 0;
+}
+figure h1 {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 1;
+}
+figure img {
+  height: 100%;
+  width: 100%;
+  transition: 0.25s;
+}
+figure figcaption {
+  position: absolute;
+  bottom: -33%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0px 18px;
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  color: white;
+  line-height: 1;
+  transition: 0.25s;
+}
+figure figcaption h3 {
+  margin: 0 0 20px;
+  padding: 0;
+}
+figure figcaption p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.col-3 {
+  padding: 0 !important;
+  margin-bottom: 0% !important;
+}
+.my-p {
+  height: 15rem;
+  overflow: hidden;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #140f1d;
+}
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.input {
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  background: none;
+  border: 4px solid #ffd52d;
+  border-radius: 50px;
+  box-sizing: border-box;
+  font-family: Comic Sans MS;
+  font-size: 26px;
+  color: #ffd52d;
+  outline: none;
+  transition: 0.5s;
+}
+.box:hover input {
+  width: 350px;
+  background: #272133;
+  border-radius: 10px;
+}
+i {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(-50%, -50%);
+  font-size: 26px;
+  color: #ffd52d;
+  transition: 0.2s;
+}
+.box:hover i {
+  opacity: 0;
+  z-index: -1;
+}
