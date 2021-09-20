@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Card, Button, Popover, OverlayTrigger } from "react-bootstrap";
+import { Col, Button, Popover, OverlayTrigger } from "react-bootstrap";
 import "./Search.css";
 export class RenderCards extends Component {
   popOver = () => {
@@ -34,23 +34,20 @@ export class RenderCards extends Component {
   render() {
     return this.props?.searchBooks?.map((item) => {
       return (
-        <Col key={item.id}>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
+        <Col key={item.id} xs={3}>
+          <figure class="image-block">
+            <img
               src={
                 item.image
                   ? item.image
                   : "https://eloquentjavascript.net/img/cover.jpg"
               }
+              alt=""
             />
-            <Card.Body>
-              <Card.Title>{item.title}</Card.Title>
-              <Card.Text>{item.categories || "No categories"}</Card.Text>
-              <Card.Text>{item.authors || "No authors"}</Card.Text>
-              <Card.Text style={{ overflowY: "scroll" }}>
-                {/* {item.description || "No description"} */}
-              </Card.Text>
+            <figcaption>
+              <h4>{item.title}</h4>
+              <p className="my-p">{item.description || "No description"}</p>
+              <h4>{item.authors || "No authors"}</h4>
               {this.props.isAuthenticated ? (
                 <Button
                   className="submit"
@@ -78,8 +75,8 @@ export class RenderCards extends Component {
               ) : (
                 this.popOver()
               )}
-            </Card.Body>
-          </Card>
+            </figcaption>
+          </figure>
         </Col>
       );
     });
