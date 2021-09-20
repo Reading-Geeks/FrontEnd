@@ -3,6 +3,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import { Form, InputGroup, FormControl, Row } from "react-bootstrap";
 import RenderCards from "./RenderCards";
 import axios from "axios";
+import "./Search.css";
 class Search extends Component {
   state = { searchBooks: [], searchTerm: "" };
   getSearchResult = (search) => {

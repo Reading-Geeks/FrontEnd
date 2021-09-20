@@ -1,0 +1,15 @@
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+
+*/
+.nav {
+  flex-wrap: nowrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.logo {
+  width: 14%;
+}
