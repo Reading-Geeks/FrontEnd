@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import Carousel from "react-bootstrap/Carousel";
+import '../homePage.css';
+import img1 from "./assests/a.jpg"
+import img2 from "./assests/b.jpg"
+import img3 from "./assests/c.jpg"
+import img4 from "./assests/d.jpg"
+import img5 from "./assests/e.jpg"
+import img6 from "./assests/f.jpg"
+import img7 from "./assests/g.jpg"
+import img8 from "./assests/h.jpg"
+
 import {
   Form,
   InputGroup,
@@ -34,8 +44,13 @@ class Homepage extends Component {
   mapStateToCards = () => {
     return this.state.bestSeller?.map((item) => {
       return (
-        <Col key={item.id}>
+<>
+
+<Col>
           <Card style={{ width: "15rem" }}>
+          <Carousel>
+          <Carousel.Item>
+            
             <Card.Img
               variant="top"
               src={
@@ -44,60 +59,129 @@ class Homepage extends Component {
                   : "https://eloquentjavascript.net/img/cover.jpg"
               }
             />
+            
+<Carousel.Caption>
             <Card.Body>
               <Card.Title>{item.title}</Card.Title>
               <Card.Text>{item.authors || "No authors"}</Card.Text>
             </Card.Body>
+            </Carousel.Caption>
+            
+          </Carousel.Item>
+            </Carousel>
           </Card>
-        </Col>
+          </Col>
+       
+       </> 
       );
     });
   };
   render() {
     return (
       <>
-        <Carousel>
+        <Carousel fade>
+
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2021/09/14/Gateway_Quote_A2_09-14_.jpg"
+              src={img1}
               alt="First slide"
-              height="500"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <p className="first">“A reader lives a thousand lives before he dies . . . The man who never reads lives only one.” </p>
+              <p> - George R.R. Martin</p>
             </Carousel.Caption>
           </Carousel.Item>
+
+          {/* <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={img2}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>“Reading is essential for those who seek to rise above the ordinary.”</h3>
+              <p>- Jim Rohn</p>
+            </Carousel.Caption>
+          </Carousel.Item> */}
+
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://images-production.bookshop.org/spree/promo_banner_slides/desktop_images/143/original/will_harrow_bookshop_desktop_v3.jpg?1631531592"
-              alt="Second slide"
-              height="500"
+              src={img3}
+              alt="First slide"
             />
-
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p className="first">“Reading gives us someplace to go when we have to stay where we are.” </p>
+              <p>– Mason Cooley</p>
             </Carousel.Caption>
           </Carousel.Item>
+
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2021/09/16/Gateway_Quote_A4_09-16.jpg"
-              alt="Third slide"
-              height="500"
+              src={img4}
+              alt="First slide"
             />
-
             <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+            <p className="first">"The reading of all good books is like a conversation with the finest minds of past centuries."</p>
+              <p>- Rene Descartes</p>
             </Carousel.Caption>
           </Carousel.Item>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={img5}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+            <p className="first">“The more that you read, the more things you will know. The more that you learn, the more places you’ll go.” </p>
+              <p> - Dr. Seuss</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={img6}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+            <p className="first">“Reading brings us unknown friends”</p>
+              <p>- Honoré de Balzac</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={img7}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+            <p className="first">“Reading is a basic tool in the living of a good life.”</p>
+              <p>- Mortimer J. Adler</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={img8}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+            <p className="first">“Reading is to the mind what exercise is to the body.” </p>
+              <p>— Sir Richard Steele</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
         </Carousel>
+
+
+
+        
         <div
           class="container"
           id="projects-text-section"
@@ -127,6 +211,7 @@ class Homepage extends Component {
             best sellers list for the month
           </h1>
         </div>
+        
         <Row style={{ marginTop: "100px" }}>{this.mapStateToCards()}</Row>
         <div
           class="container"
@@ -158,6 +243,7 @@ class Homepage extends Component {
             ideas in your life
           </h1>
         </div>
+
 
         <section
           className="section section-lg pt-lg-0 mt--200"
