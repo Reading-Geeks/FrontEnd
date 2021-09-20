@@ -13,18 +13,15 @@ class RenderDonate extends React.Component {
       id: "",
     };
   }
-
   componentDidMount = () => {
     const { user } = this.props.auth0;
     const email = user.email;
-    // console.log(email);
     axios
-      .get(`http://localhost:3333/readDonateData2?email=${email}`)
+      .get(`http://localhost:3333/readDonateData?email=${email}`)
       .then((result) => {
         this.setState({
           obj: result.data,
         });
-        console.log(result.data);
       })
       .catch((err) => {
         console.log("error");
@@ -33,7 +30,6 @@ class RenderDonate extends React.Component {
   deleteBook = (id) => {
     const { user } = this.props.auth0;
     const email = user.email;
-    console.log(id);
     axios
       .delete(`http://localhost:3333/removeDonateData/${id}?email=${email}`)
       .then((result) => {
@@ -47,7 +43,6 @@ class RenderDonate extends React.Component {
   };
 
   render() {
-    const { user } = this.props.auth0;
     return (
       <>
         <Row xs={1} md={3} className="g-4">
@@ -57,7 +52,8 @@ class RenderDonate extends React.Component {
                 <Card>
                   <Card.Body>
                     <Card.Title>Title: {item.title}</Card.Title>
-                    {/* <Card.Img variant="top" src={`${item.image}/100px180`} /> */}
+                    <Card.Img variant="top" src={`${item.image}/100px180`} />
+
                     <Card.Text>Description: {item.description}</Card.Text>
                     <Card.Text>Authors: {item.author}</Card.Text>
                     <Card.Text>Categories: {item.category}</Card.Text>

@@ -26,12 +26,8 @@ class Donate extends Component {
     };
   }
 
-  newBook = (newData) => {
+  newBook = () => {
     this.read()
-    // this.setState({
-    //   booksArray: newData,
-      // showCard: true,
-    // });
   };
 
   showUpdateForm = (item) => {
@@ -59,15 +55,13 @@ class Donate extends Component {
     ])
 
       .then(([finalresult, favdonateres]) => {
-        console.log(finalresult.data);
-        console.log(favdonateres.data);
-
+        
         if (!isAuthenticated || favdonateres?.data?.length === 0)
           return this.setState({ booksArray: finalresult.data });
         else {
-          // console.log("hi")
+          
           const searchBooks = [...finalresult.data];
-          console.log(searchBooks);
+         
           searchBooks.filter(({ title }, i) => {
             const newFav = favdonateres.data.filter(
               ({ title: favId }) => favId === title
@@ -110,12 +104,6 @@ class Donate extends Component {
     axios
       .put(url, obj)
       .then((result) => {
-        // const resultData = result.data;
-        // console.log(resultData);
-        // this.setState({
-        //   booksArray: resultData,
-        //   showModal: false,
-        // });
         this.read();
       })
       .catch((err) => console.log("Error while updating the data"));
@@ -133,11 +121,7 @@ class Donate extends Component {
     axios
       .delete(url)
       .then((result) => {
-        const resultData = result.data;
-        // console.log(resultData);
-        // this.setState({
-        //   booksArray: resultData,
-        // });
+    
         this.read();
       })
       .catch((err) => console.log("Error while deleting the data"));
@@ -161,11 +145,8 @@ class Donate extends Component {
     axios
       .post(`http://localhost:3333/addDonateData`, booksArray1)
       .then((result) => {
-        console.log(result);
-        // this.setState({
-        //   booksArray: result.data,
+      
         this.read();
-        // });
       })
       .catch((err) => {
         console.log("Error on adding data");
@@ -176,9 +157,7 @@ class Donate extends Component {
 
   render() {
     const { user } = this.props.auth0;
-    {
-      console.log(this.state.booksArray);
-    }
+   
     return (
       <div>
         <AddForm newBook={this.newBook}
