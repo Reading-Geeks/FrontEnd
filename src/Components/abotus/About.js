@@ -1,22 +1,15 @@
-
 import React, { Component } from "react";
 // import { Card, Button , CardGroup } from "react-bootstrap";
 import axios from "axios";
 import { withAuth0 } from "@auth0/auth0-react";
-// import Card from 'react-bootstrap/Card';
+import Card from 'react-bootstrap/Card';
 // import Button from 'react-bootstrap/Button';
-// import Col from 'react-bootstrap/Col';
+import Col from 'react-bootstrap/Col';
 import Aboutuspage from "./Aboutuspage"
 import Row from 'react-bootstrap/Row';
 import UpdateFromModel from "./UpdateFromModel";
-
-
 class About extends Component {
-
-
-
     constructor(props) {
-
         super(props);
         this.state = {
             FavAboutArr: [],
@@ -26,163 +19,111 @@ class About extends Component {
             email: '',
             image: '',
             PersonId: '',
-            showModel: true
+            showModel: false
         }
-
-
     }
-
-
     componentDidMount = () => {
-        const { user } = this.props.auth0;
-        const email = user.email;
+        
+       
         axios.get(`http://localhost:3333/aboutus`).then(result => {
             this.setState({
                 FavAboutArr: result.data
             })
-
-
         })
-
             .catch(err => {
-
-
                 console.log('Error');
-
             })
-
     }
-
-
-
-
     handleClose = () => {
         this.setState({
             showModel: true
         })
     }
-
-      showUpdateForm = (item) => {
+    closeModel = () => {
         this.setState({
-            showModel: false,
-          Name : item,
-          Description: item.Description,
-          Status: item.Status,
-          bookId: item._id
-
+            showModel: false
         })
-      }
-
-      updateBook = (event) => {
+    }
+    showUpdateForm = (item) => {
+        this.setState({
+            showModel: true,
+            PersonName: item.PersonName,
+            image: item.image,
+            Description: item.Description,
+            PersonId: item._id
+        })
+    }
+    ubdateInfo = (event) => {
         event.preventDefault();
         const { user } = this.props.auth0;
         const email = user.email;
+        console.log(email);
         const obj = {
-          BookName: event.target.BookName.value,
-          Description: event.target.Description.value,
-          Status: event.target.Status.value,
-          email: email
+            PersonName: event.target.PersonName.value,
+            Description: event.target.Description.value,
+            image: event.target.image.value,
+            email: email,
+            PersonId: this.state.PersonId
         }
-
         axios
-          .put(`https://lab-books.herokuapp.com/updateBook/${this.state.bookId}`, obj)
-          .then(result => {
-            this.setState({
-              FavBookArr: result.data,
-              showFlag: false
+            .put(`http://localhost:3333/updateAbotUs/${this.state.PersonId}`, obj)
+            .then(result => {
+                this.setState({
+                    FavAboutArr: result.data,
+                    showModel: false
+                })
             })
-          })
-          .catch(err => {
-            console.log('error in updating the data');
-          })
-      }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            .catch(err => {
+                console.log('error in updating the data');
+            })
+    }
     render() {
-
         return (
-
             <>
+                <Card className="text-center">
+                    <Card.Header>Our Vision </Card.Header>
+                    <Card.Body>
+                        <Card.Title>Special title treatment</Card.Title>
+                        <Card.Text>
+                            With supporting text below as a natural lead-in to additional content.
+                        </Card.Text>
+                    </Card.Body>
+                    <Card.Footer className="text-muted"></Card.Footer>
+                </Card>
+
+                <Card className="text-center">
+                    <Card.Header>Our Misssion </Card.Header>
+                    <Card.Body>
+                        <Card.Title>Special title treatment</Card.Title>
+                        <Card.Text>
+                            With supporting text below as a natural lead-in to additional content.
+                        </Card.Text>
+                    </Card.Body>
+                    <Card.Footer className="text-muted"></Card.Footer>
+                </Card>
+
                 <Row Row xs={1} md={3} className="g-4">
-
                     {this.state.FavAboutArr.map(item => {
-
-                        return (<Aboutuspage
-                            item={item}
-                            Update={this.showUpdateForm}
-                            show ={this.state.show}
-                            showUpdateform ={this.showUpdateForm}
-                        />)
-
-
-
-
-
-
-
+                        return (
+                            <Aboutuspage
+                                item={item}
+                                showUpdateform={this.showUpdateForm}
+                                email={this.props.auth0?.user?.email}
+                            />)
                     })}
                 </Row>
-
                 <UpdateFromModel
-
                     show={this.state.showModel}
                     handleClose={this.handleClose}
-
-
-
+                    closeModel={this.closeModel}
+                    PersonName={this.state.PersonName}
+                    Description={this.state.Description}
+                    image={this.state.image}
+                    ubdateInfo={this.ubdateInfo}
+                  
                 />
-
             </>
-
-
-
         )
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
 export default withAuth0(About);
