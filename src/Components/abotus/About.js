@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-// import { Card, Button , CardGroup } from "react-bootstrap";
 import axios from "axios";
 import { withAuth0 } from "@auth0/auth0-react";
 import Card from "react-bootstrap/Card";
-// import Button from 'react-bootstrap/Button';
-import Col from "react-bootstrap/Col";
 import Aboutuspage from "./Aboutuspage";
 import Row from "react-bootstrap/Row";
 import UpdateFromModel from "./UpdateFromModel";

@@ -3,10 +3,7 @@ import { Form, Button, Card } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import "./donate.css";
-import image3 from "./image/book3-cropped.jpg";
-// import image13 from "./image/book4.jpg";
 import image13 from "./image/book13-cropped.jpg";
-// import image6 from "./image/book6.jpg";
 import image6 from "./image/book11.jpg";
 
 class AddForm extends Component {
@@ -14,11 +11,6 @@ class AddForm extends Component {
     super(props);
     this.state = {
       booksArray: [],
-      // title: "",
-      // description: "",
-      // category: "",
-      // author: "",
-      // publishedDate: "",
     };
   }
 
@@ -29,7 +21,6 @@ class AddForm extends Component {
     const { user } = this.props.auth0;
     const email = user?.email;
     const url = `http://localhost:3333/donate`;
-    // const url = `https://reading-geeks.herokuapp.com/donate`;
 
     const obj = {
       title: e.target.title.value,
@@ -46,7 +37,6 @@ class AddForm extends Component {
       .post(url, obj)
       .then((result) => {
         const resultData = result.data;
-        // console.log(resultData);
         this.props.newBook(resultData);
       })
       .catch((err) => console.log(err));
@@ -59,17 +49,18 @@ class AddForm extends Component {
       <div className="d-flex flex-column mb-3">
         <h1 className="firstSentence">
           Instead of throwing out your old books or recycling them,{" "}
-          <b className="b">DONATE</b> them so they can be read and enjoyed again.
+          <b className="b">DONATE</b> them so they can be read and enjoyed
+          again.
         </h1>
         <img
           src={image13}
-          className="img-fluid shadow-4"
-          className="responsiveImage"
+          className="img-fluid shadow-4 responsiveImage"
           alt="..."
         />
 
         <h2 className="secondSentence">
-          Your used books make a big difference in other people's <b className="b">minds</b>.
+          Your used books make a big difference in other people's{" "}
+          <b className="b">minds</b>.
           <pre /> No matter how big or small, but your{" "}
           <b className="b">donations</b> are needed and appreciated.
           <pre />
