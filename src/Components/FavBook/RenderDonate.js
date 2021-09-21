@@ -43,7 +43,7 @@ class RenderDonate extends React.Component {
   render() {
     return (
       <>
-      <h2>My Books</h2>
+      {this.state.obj.length!==0?<h2>My Books</h2>:null}
         <Row xs={1} md={2} className="g-4d">
           {this.state.obj.map((item) => {
             return (
