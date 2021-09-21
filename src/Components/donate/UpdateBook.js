@@ -10,7 +10,7 @@ class UpdateBook extends Component {
             <Modal.Title>Edit Your Book</Modal.Title>
           </Modal.Header> */}
           <Modal.Body>
-          <Button
+            <Button
               variant="secondary"
               onClick={this.props.handleClose}
               className="closeBtn"
