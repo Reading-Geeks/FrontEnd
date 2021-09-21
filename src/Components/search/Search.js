@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
-import { Form, InputGroup, FormControl, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import RenderCards from "./RenderCards";
 import axios from "axios";
 import "./Search.css";

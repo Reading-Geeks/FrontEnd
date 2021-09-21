@@ -78,9 +78,6 @@ class UpdateBook extends Component {
             <Button variant="secondary" onClick={this.props.handleClose}>
               Discard
             </Button>
-            {/* <Button variant="primary" onClick={this.props.handleClose}>
-              Save Changes
-            </Button> */}
           </Modal.Footer>
         </Modal>
       </div>
