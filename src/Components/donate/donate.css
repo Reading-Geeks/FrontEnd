@@ -1,15 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap");
 
-/* * {
-  background-color: #eeebdd;
-  box-sizing: border-box;
-} */
-
-/* body {
-  margin: 0 auto;
-  width: 98%;
-} */
-
 .formDiv {
   display: flex;
   width: 100%;
@@ -20,32 +10,30 @@
   /* box-shadow: 0 -5px 3px -3px black, 0 5px 3px -3px; */
   box-shadow: 0 -5px 30px -10px black, 0 7px 30px -3px black;
 }
-.firstSentence{
-    font-family: "Cairo", sans-serif;
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-bottom: 100px;
-    margin-top: 100px;
-    text-align: center;
-    line-height: 2.2;
+.firstSentence {
+  font-family: "Cairo", sans-serif;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 100px;
+  text-align: center;
+  line-height: 2.2;
 }
-.secondSentence{
-    font-family: "Cairo", sans-serif;
-    margin-left: 100px;
-    margin-right: 100px;
-    /* margin-bottom: 100px; */
-    /* margin-top: 20px; */
-    text-align: center;
-    line-height: 1.4;
+.secondSentence {
+  font-family: "Cairo", sans-serif;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+  line-height: 1.4;
 }
-.b{
-    color: #810000;
+.b {
+  color: #810000;
 }
 .p-2 {
   margin-top: 50px;
   margin-bottom: 100px;
-  margin-left: 10%;
-  width: 40%;
+  margin-left: 3.5%;
+  width: 42%;
   border: dotted black 1px;
   font-family: "Cairo", sans-serif;
   color: #810000;
@@ -55,7 +43,7 @@
 
 .img-thumbnail {
   margin-top: 50px;
-  margin-left: 160px;
+  margin-left: 300px;
   display: flex;
   height: 46rem;
   width: 28rem;
@@ -134,3 +122,338 @@
 }
 
 /*--------------------------------------------------------------------------------------------*/
+
+.donatedBooks{
+  color: #1B1717;
+  margin-left: 5%;
+  font-family: "Cairo", sans-serif;
+}
+
+
+
+
+
+
+.formInsideModal {
+  margin-left: 10.5%;
+  margin-bottom: 4%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Cairo", sans-serif;
+  color: #810000;
+  border: dotted black 1px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: #eeebdd;
+  box-shadow: 0 -3px 15px -5px black, 0 0px 2px -3px black;
+}
+
+.closeBtn {
+  margin-top: -20px;
+  background-color: white;
+  color: #810000;
+  margin-left: 91.5%;
+  border-style: none;
+  /* padding: -5px; */
+}
+
+/*----------------------------------------Update Button----------------------------------------*/
+.updateBtn {
+  background-color: #ededed;
+  transform: translate(-50%, -50%);
+  color: #810000 !important;
+  text-decoration: none;
+  font-size: 2em;
+  display: inline-block;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  padding: 0 3rem;
+  height: 1.8em;
+  border: 2px solid #810000 !important;
+  transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+  /* margin-left: 30%; */
+  margin-left: -10%;
+  margin-top: 43%;
+}
+.updateBtn::before {
+  background-color: #ededed;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #0274b6 !important;
+  color: #0274b6 !important;
+  transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+
+  z-index: -1;
+}
+.updateBtn::after {
+  content: "";
+  display: inline-block;
+  background-image: url("../../Assets/white-arrow-png-41947.png");
+  position: absolute;
+  top: 0;
+  left: calc(100% - 3em);
+  transform: scale(0.8);
+  right: 3em;
+  bottom: 0;
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.updateBtn:hover {
+  background-color: #ededed;
+  padding: 0.05em 3.5em 0.08em 0.5em;
+  height: 1.8em;
+  color: #0274b6 !important;
+  border: 2px solid #0274b6 !important;
+}
+.updateBtn:hover::before {
+  left: calc(100% - 3em);
+  right: 0;
+  transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.updateBtn:hover::after {
+  right: 0;
+  transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+/*--------------------------------------------------------------------------------------------*/
+
+
+/*----------------------------------------Delete Button----------------------------------------*/
+.deleteBtn {
+  background-color: #ededed;
+  transform: translate(-50%, -50%);
+  color: #810000 !important;
+  text-decoration: none;
+  font-size: 2em;
+  display: inline-block;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  padding: 0 3rem;
+  height: 1.8em;
+  border: 2px solid #810000 !important;
+  transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+  margin-left: 6%;
+  margin-top: 0%;
+  /* margin-bottom: -10% !important; */
+}
+.deleteBtn::before {
+  background-color: #ededed;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: black !important;
+  color: black !important;
+  transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+
+  z-index: -1;
+}
+.deleteBtn::after {
+  content: "";
+  display: inline-block;
+  background-image: url("../../Assets/white-arrow-png-41947.png");
+  position: absolute;
+  top: 0;
+  left: calc(100% - 3em);
+  transform: scale(0.8);
+  right: 3em;
+  bottom: 0;
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.deleteBtn:hover {
+  background-color: #ededed;
+  padding: 0.05em 3.5em 0.08em 0.5em;
+  height: 1.8em;
+  color: black !important;
+  border: 2px solid black !important;
+}
+.deleteBtn:hover::before {
+  left: calc(100% - 3em);
+  right: 0;
+  transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.deleteBtn:hover::after {
+  right: 0;
+  transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+/*--------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------Favorite Button----------------------------------------*/
+.favoriteBtn {
+  background-color: #ededed;
+  transform: translate(-50%, -50%);
+  color: #810000 !important;
+  text-decoration: none;
+  font-size: 2em;
+  display: inline-block;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  padding: 0 3rem;
+  height: 1.8em;
+  border: 2px solid #810000 !important;
+  transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+  margin-left: -10%;
+  margin-top: 45%;
+}
+.favoriteBtn::before {
+  background-color: #ededed;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #ce1212 !important;
+  color: #ce1212 !important;
+  transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+
+  z-index: -1;
+}
+.favoriteBtn::after {
+  content: "";
+  display: inline-block;
+  background-image: url("../../Assets/white-arrow-png-41947.png");
+  position: absolute;
+  top: 0;
+  left: calc(100% - 3em);
+  transform: scale(0.8);
+  right: 3em;
+  bottom: 0;
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.favoriteBtn:hover {
+  background-color: #ededed;
+  padding: 0.05em 3.5em 0.08em 0.5em;
+  height: 1.8em;
+  color: #ce1212 !important;
+  border: 2px solid #ce1212 !important;
+}
+.favoriteBtn:hover::before {
+  left: calc(100% - 3em);
+  right: 0;
+  transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.favoriteBtn:hover::after {
+  right: 0;
+  transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+/*--------------------------------------------------------------------------------------------*/
+.cardBody{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+/*---------------------------------------Book Card--------------------------------------------*/
+
+
+
+
+.wrapper {
+  height: 300px;
+  width: 654px;
+  margin: 50px auto;
+  border-radius: 7px 7px 7px 7px;
+  /* VIA CSS MATIC https://goo.gl/cIbnS */
+
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  float: left;
+  height: 100%;
+  width: 50%;
+}
+
+.product-img img {
+  border-radius: 7px 0 0 7px;
+  width: 60%;
+  height: 100%;
+}
+
+.product-info {
+  position: relative;
+  height: 100%;
+  width: 70%;
+  margin-left: 30%;
+  border-radius: 0 7px 10px 7px;
+  background-color: #ffffff;
+}
+
+.product-text {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: justify;
+}
+
+.product-text h1 {
+  font-size: 1.5rem;
+  text-align: start;
+  color: #474747;
+  width: 100%;
+  height: 50%;
+  max-height: 55px;
+  overflow: hidden;
+  margin: 1% 10%;
+  width: 80%;
+}
+
+.product-text h1,
+.product-price-btn p {
+  font-family: "Bentham", serif;
+}
+
+.product-text h2 {
+  font-size: 13px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #d2d2d2;
+  letter-spacing: 0.2em;
+  margin: 1% 10%;
+  width: 80%;
+}
+
+.product-text p {
+  margin: 1% 10%;
+  font-family: "Playfair Display", serif;
+  color: #8d8d8d;
+  line-height: 1.7em;
+  font-size: 15px;
+  font-weight: lighter;
+  overflow: hidden;
+  text-align: justify;
+  width: 80%;
+  height: 124px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+
+
