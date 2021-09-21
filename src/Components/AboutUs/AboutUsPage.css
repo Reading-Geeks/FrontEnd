@@ -1,0 +1,130 @@
+.col-3A {
+  padding: 0 !important;
+  margin-bottom: 0% !important;
+}
+.my-p {
+  height: 15rem;
+  overflow: hidden;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+.input {
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  background: none;
+  border: 4px solid #ce1212;
+  border-radius: 50px;
+  box-sizing: border-box;
+  font-size: 26px;
+  color: #ce1212;
+  outline: none;
+  transition: 0.5s;
+}
+.box:hover input {
+  width: 350px;
+  border-radius: 10px;
+}
+i {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(-50%, -50%);
+  font-size: 26px;
+  color: #ce1212;
+  transition: 0.2s;
+}
+.box:hover i {
+  opacity: 0;
+  z-index: -1;
+}
+
+.wrapperA {
+  height: 300px;
+  width: 654px;
+  margin: 50px auto;
+  border-radius: 7px 7px 7px 7px;
+  /* VIA CSS MATIC https://goo.gl/cIbnS */
+
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 7%;
+}
+
+.product-imgA {
+  float: left;
+  height: 100%;
+  width: 50%;
+}
+
+.product-imgA img {
+  border-radius: 7px 0 0 7px;
+  width: 60%;
+  height: 100%;
+}
+
+.product-infoA {
+  position: relative;
+  height: 100%;
+  width: 70%;
+  margin-left: 30%;
+  border-radius: 0 7px 10px 7px;
+  background-color: #ffffff;
+}
+
+.product-textA {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: justify;
+}
+
+.product-textA h1 {
+  font-size: 1.5rem;
+  text-align: start;
+  color: #474747;
+  width: 100%;
+  height: 50%;
+  max-height: 55px;
+  overflow: hidden;
+  margin: 1% 10%;
+  width: 80%;
+}
+
+.product-price-btnA {
+  margin-left: 80%;
+  margin-top: 20%;
+}
+.product-price-btnA p {
+  font-family: "Bentham", serif;
+}
+
+/* .product-textA h2 {
+  font-size: 13px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #d2d2d2;
+  letter-spacing: 0.2em;
+  margin: 1% 10%;
+  width: 80%;
+} */
+
+.product-textA p {
+  margin: 1% 10%;
+  font-family: "Playfair Display", serif;
+  color: #8d8d8d;
+  line-height: 1.7em;
+  font-size: 15px;
+  font-weight: lighter;
+  overflow: hidden;
+  text-align: justify;
+  width: 80%;
+  height: 124px;
+}
