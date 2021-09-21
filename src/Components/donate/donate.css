@@ -57,7 +57,7 @@
 
 /*-----------------------------------------Donate Button------------------------------------------*/
 .submitDonate {
-  background-color: #eeebdd;
+  background-color: #eeebdd !important;
   transform: translate(-50%, -50%);
   color: #810000 !important;
   text-decoration: none;
@@ -73,7 +73,7 @@
   margin-left: 50%;
 }
 .submitDonate::before {
-  background-color: #eeebdd;
+  background-color: #eeebdd !important;
   content: "";
   display: inline-block;
   position: absolute;
@@ -104,7 +104,7 @@
   transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
 }
 .submitDonate:hover {
-  background-color: #eeebdd;
+  background-color: #eeebdd !important;
   padding: 0.05em 3.5em 0.08em 0.5em;
   height: 1.8em;
   color: #810000 !important;
@@ -211,7 +211,7 @@
   background-color: #ededed;
   padding: 0.05em 3.5em 0.08em 0.5em;
   height: 1.8em;
-  color: #0274b6 !important;
+  color: #0274b6 ;
   border: 2px solid #0274b6 !important;
 }
 .updateBtn:hover::before {
@@ -229,7 +229,7 @@
 
 /*----------------------------------------Delete Button----------------------------------------*/
 .deleteBtn {
-  background-color: #ededed;
+  background-color: #ededed !important;
   transform: translate(-50%, -50%);
   color: #810000 !important;
   text-decoration: none;
@@ -242,11 +242,11 @@
   border: 2px solid #810000 !important;
   transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
   margin-left: 6%;
-  margin-top: 0%;
+  margin-top: 43%;
   /* margin-bottom: -10% !important; */
 }
 .deleteBtn::before {
-  background-color: #ededed;
+  background-color: #ededed !important;
   content: "";
   display: inline-block;
   position: absolute;
@@ -277,7 +277,7 @@
   transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
 }
 .deleteBtn:hover {
-  background-color: #ededed;
+  background-color: #ededed !important;
   padding: 0.05em 3.5em 0.08em 0.5em;
   height: 1.8em;
   color: black !important;
@@ -298,7 +298,7 @@
 
 /*----------------------------------------Favorite Button----------------------------------------*/
 .favoriteBtn {
-  background-color: #ededed;
+  background-color: #ededed !important;
   transform: translate(-50%, -50%);
   color: #810000 !important;
   text-decoration: none;
@@ -314,7 +314,7 @@
   margin-top: 45%;
 }
 .favoriteBtn::before {
-  background-color: #ededed;
+  background-color: #ededed !important;
   content: "";
   display: inline-block;
   position: absolute;
@@ -345,7 +345,7 @@
   transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
 }
 .favoriteBtn:hover {
-  background-color: #ededed;
+  background-color: #ededed !important;
   padding: 0.05em 3.5em 0.08em 0.5em;
   height: 1.8em;
   color: #ce1212 !important;

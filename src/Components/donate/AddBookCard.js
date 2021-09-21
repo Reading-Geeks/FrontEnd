@@ -31,7 +31,7 @@ class AddBookCard extends Component {
 
           <div className="product-price-btn">
             {isAuthenticated && email === this.props.item.email ? (
-              <button
+              <Button
                 disabled={this.props.item.isFav ? true : false}
                 className="updateBtn"
                 variant="primary"
@@ -51,11 +51,11 @@ class AddBookCard extends Component {
                     d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
                   />
                 </svg>
-              </button>
+                </Button>
             ) : null}
 
             {isAuthenticated && email !== this.props.item.email ? (
-              <button
+              <Button
                 disabled={this.props.item.isFav ? true : false}
                 className="favoriteBtn"
                 variant="primary"
@@ -71,11 +71,11 @@ class AddBookCard extends Component {
                 >
                   <path d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z" />
                 </svg>
-              </button>
+                </Button>
             ) : null}
 
             {isAuthenticated && email === this.props.item.email ? (
-              <button
+              <Button
                 disabled={this.props.item.isFav ? true : false}
                 className="deleteBtn"
                 variant="primary"
@@ -95,7 +95,7 @@ class AddBookCard extends Component {
                     d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
                   />
                 </svg>
-              </button>
+                </Button>
             ) : null}
           </div>
         </div>
