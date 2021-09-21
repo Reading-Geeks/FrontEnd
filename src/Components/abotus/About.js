@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-// import { Card, Button , CardGroup } from "react-bootstrap";
 import axios from "axios";
 import { withAuth0 } from "@auth0/auth0-react";
 import Card from "react-bootstrap/Card";
-// import Button from 'react-bootstrap/Button';
-import Col from "react-bootstrap/Col";
 import Aboutuspage from "./Aboutuspage";
 import Row from "react-bootstrap/Row";
 import UpdateFromModel from "./UpdateFromModel";
@@ -80,11 +77,13 @@ class About extends Component {
   render() {
     return (
       <>
+      
         <Card className="text-center">
-          <Card.Header>Our Mission</Card.Header>
+       
+          <Card.Header   style={{ fontFamily:"Times New Roman",fontWeight:"bold" }}  >Our Mission</Card.Header>
           <Card.Body>
             <Card.Title></Card.Title>
-            <Card.Text>
+            <Card.Text style={{ fontFamily:"Times New Roman" , fontSize:25  }} >
               Our main purpose is to spread the awareness and show the
               importance of reading. And make it easier to exchange books among
               community member to have the oppurtunity to read a great books.
@@ -94,10 +93,10 @@ class About extends Component {
         </Card>
 
         <Card className="text-center">
-          <Card.Header>Our Vision</Card.Header>
+          <Card.Header  style={{ fontFamily:"Times New Roman",fontWeight:"bold" }}  >Our Vision</Card.Header>
           <Card.Body>
             <Card.Title></Card.Title>
-            <Card.Text>
+            <Card.Text style={{ fontFamily:"Times New Roman" , fontSize:25 }} >
               We are aiming to expand our activity, and start making an events
               that are related to reading in schools in order to introduce how
               the reading is important and interesting to children.
@@ -106,7 +105,7 @@ class About extends Component {
           <Card.Footer className="text-muted"></Card.Footer>
         </Card>
 
-        <Row Row xs={1} md={3} className="g-4">
+        <Row Row xs={1} md={2} className="g-4">
           {this.state.FavAboutArr.map((item) => {
             return (
               <Aboutuspage

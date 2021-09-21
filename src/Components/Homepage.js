@@ -1,28 +1,16 @@
 import React, { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import Carousel from "react-bootstrap/Carousel";
-import '../homePage.css';
-import img1 from "./assests/a.jpg"
-import img2 from "./assests/b.jpg"
-import img3 from "./assests/c.jpg"
-import img4 from "./assests/d.jpg"
-import img5 from "./assests/e.jpg"
-import img6 from "./assests/f.jpg"
-import img7 from "./assests/g.jpg"
-import img8 from "./assests/h.jpg"
+import "../homePage.css";
+import img1 from "./assests/a.jpg";
+import img3 from "./assests/c.jpg";
+import img4 from "./assests/d.jpg";
+import img5 from "./assests/e.jpg";
+import img6 from "./assests/f.jpg";
+import img7 from "./assests/g.jpg";
+import img8 from "./assests/h.jpg";
 
-import {
-  Form,
-  InputGroup,
-  FormControl,
-  Card,
-  Button,
-  Row,
-  Col,
-  Container,
-  Badge,
-  CardBody,
-} from "react-bootstrap";
+import { Card, Col, Row, Container } from "react-bootstrap";
 import axios from "axios";
 
 class Homepage extends Component {
@@ -44,35 +32,31 @@ class Homepage extends Component {
   mapStateToCards = () => {
     return this.state.bestSeller?.map((item) => {
       return (
-<>
+        <>
+          <Col>
+            <Card style={{ width: "15rem" }}>
+              <Carousel>
+                <Carousel.Item>
+                  <Card.Img
+                    variant="top"
+                    src={
+                      item.image
+                        ? item.image
+                        : "https://eloquentjavascript.net/img/cover.jpg"
+                    }
+                  />
 
-<Col>
-          <Card style={{ width: "15rem" }}>
-          <Carousel>
-          <Carousel.Item>
-            
-            <Card.Img
-              variant="top"
-              src={
-                item.image
-                  ? item.image
-                  : "https://eloquentjavascript.net/img/cover.jpg"
-              }
-            />
-            
-<Carousel.Caption>
-            <Card.Body>
-              <Card.Title>{item.title}</Card.Title>
-              <Card.Text>{item.authors || "No authors"}</Card.Text>
-            </Card.Body>
-            </Carousel.Caption>
-            
-          </Carousel.Item>
-            </Carousel>
-          </Card>
+                  <Carousel.Caption>
+                    <Card.Body>
+                      <Card.Title>{item.title}</Card.Title>
+                      <Card.Text>{item.authors || "No authors"}</Card.Text>
+                    </Card.Body>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              </Carousel>
+            </Card>
           </Col>
-       
-       </> 
+        </>
       );
     });
   };
@@ -80,114 +64,85 @@ class Homepage extends Component {
     return (
       <>
         <Carousel fade>
-
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={img1}
-              alt="First slide"
-            />
+            <img className="d-block w-100" src={img1} alt="First slide" />
             <Carousel.Caption>
-              <p className="first">“A reader lives a thousand lives before he dies . . . The man who never reads lives only one.” </p>
+              <p className="first">
+                “A reader lives a thousand lives before he dies . . . The man
+                who never reads lives only one.”{" "}
+              </p>
               <p> - George R.R. Martin</p>
             </Carousel.Caption>
           </Carousel.Item>
 
-          {/* <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={img2}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3>“Reading is essential for those who seek to rise above the ordinary.”</h3>
-              <p>- Jim Rohn</p>
-            </Carousel.Caption>
-          </Carousel.Item> */}
-
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={img3}
-              alt="First slide"
-            />
+            <img className="d-block w-100" src={img3} alt="First slide" />
             <Carousel.Caption>
-            <p className="first">“Reading gives us someplace to go when we have to stay where we are.” </p>
+              <p className="first">
+                “Reading gives us someplace to go when we have to stay where we
+                are.”{" "}
+              </p>
               <p>– Mason Cooley</p>
             </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={img4}
-              alt="First slide"
-            />
+            <img className="d-block w-100" src={img4} alt="First slide" />
             <Carousel.Caption>
-            <p className="first">"The reading of all good books is like a conversation with the finest minds of past centuries."</p>
+              <p className="first">
+                "The reading of all good books is like a conversation with the
+                finest minds of past centuries."
+              </p>
               <p>- Rene Descartes</p>
             </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={img5}
-              alt="First slide"
-            />
+            <img className="d-block w-100" src={img5} alt="First slide" />
             <Carousel.Caption>
-            <p className="first">“The more that you read, the more things you will know. The more that you learn, the more places you’ll go.” </p>
+              <p className="first">
+                “The more that you read, the more things you will know. The more
+                that you learn, the more places you’ll go.”{" "}
+              </p>
               <p> - Dr. Seuss</p>
             </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={img6}
-              alt="First slide"
-            />
+            <img className="d-block w-100" src={img6} alt="First slide" />
             <Carousel.Caption>
-            <p className="first">“Reading brings us unknown friends”</p>
+              <p className="first">“Reading brings us unknown friends”</p>
               <p>- Honoré de Balzac</p>
             </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={img7}
-              alt="First slide"
-            />
+            <img className="d-block w-100" src={img7} alt="First slide" />
             <Carousel.Caption>
-            <p className="first">“Reading is a basic tool in the living of a good life.”</p>
+              <p className="first">
+                “Reading is a basic tool in the living of a good life.”
+              </p>
               <p>- Mortimer J. Adler</p>
             </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={img8}
-              alt="First slide"
-            />
+            <img className="d-block w-100" src={img8} alt="First slide" />
             <Carousel.Caption>
-            <p className="first">“Reading is to the mind what exercise is to the body.” </p>
+              <p className="first">
+                “Reading is to the mind what exercise is to the body.”{" "}
+              </p>
               <p>— Sir Richard Steele</p>
             </Carousel.Caption>
           </Carousel.Item>
-
         </Carousel>
 
-
-
-        
         <div
-          class="container"
+          className="container"
           id="projects-text-section"
           style={{ marginTop: "100px" }}
         >
-          <div class="text-center">
+          <div className="text-center">
             <h2 style={{ color: "blue", fontSize: "50px", fontWeight: "bold" }}>
               THE{" "}
               <span
@@ -205,20 +160,20 @@ class Homepage extends Component {
           </div>
 
           <h1
-            class="lead w-75 text-center mx-auto"
+            className="lead w-75 text-center mx-auto"
             style={{ fontSize: "20px", fontWeight: "bold" }}
           >
             best sellers list for the month
           </h1>
         </div>
-        
+
         <Row style={{ marginTop: "100px" }}>{this.mapStateToCards()}</Row>
         <div
-          class="container"
+          className="container"
           id="projects-text-section"
           style={{ marginBottom: "100px", marginTop: "100px" }}
         >
-          <div class="text-center">
+          <div className="text-center">
             <h2 style={{ color: "blue", fontSize: "50px", fontWeight: "bold" }}>
               Reading{" "}
               <span
@@ -236,14 +191,13 @@ class Homepage extends Component {
           </div>
 
           <h1
-            class="lead w-75 text-center mx-auto"
+            className="lead w-75 text-center mx-auto"
             style={{ fontSize: "20px", fontWeight: "bold" }}
           >
             Reading increases your own creativity, sometimes sparking other
             ideas in your life
           </h1>
         </div>
-
 
         <section
           className="section section-lg pt-lg-0 mt--200"
@@ -262,7 +216,7 @@ class Homepage extends Component {
                         <h6 className="text-primary text-uppercase">
                           Research shows that regular reading:
                         </h6>
-                        <p className="description mt-3">
+                        <h6 className="description mt-3">
                           improves brain connectivity.
                           <b />
                           increases your vocabulary and comprehension.
@@ -278,7 +232,7 @@ class Homepage extends Component {
                           fights depression symptoms.
                           <b />
                           prevents cognitive decline as you age
-                        </p>
+                        </h6>
                       </Card.Body>
                     </Card>
                   </Col>
@@ -291,14 +245,14 @@ class Homepage extends Component {
                         <h6 className="text-success text-uppercase">
                           why should you read every day ?
                         </h6>
-                        <p className="description mt-3">
+                        <h6 className="description mt-3">
                           A person who reads everyday gets better at it over
                           time. Not surprisingly, daily readers also gain more
                           enjoyment from it than those that read less often. It
                           can even improve memory and critical thinking skills.
                           And activities like reading have been linked to a
                           lower risk of Alzheimer's disease
-                        </p>
+                        </h6>
                       </Card.Body>
                     </Card>
                   </Col>
@@ -311,7 +265,7 @@ class Homepage extends Component {
                         <h6 className="text-warning text-uppercase">
                           How to Develop a Reading Habit
                         </h6>
-                        <p className="description mt-3">
+                        <h6 className="description mt-3">
                           Schedule a time for reading. ...
                           <br />
                           Find a good place to read. ...
@@ -324,7 +278,7 @@ class Homepage extends Component {
                           <br />
                           Carry a book everywhere you go.
                           <br />
-                        </p>
+                        </h6>
                       </Card.Body>
                     </Card>
                   </Col>
@@ -382,6 +336,7 @@ class Homepage extends Component {
                       class="d-block w-100 slanted-left"
                       src="https://static.thriftbooks.com/images/tblogo-green_20200225.svg"
                       height="200"
+                      alt={"Thriftbooks"}
                     />
                   </div>
                   <div class="col-7 p-0 pe-4 projects-grid-text text-end my-auto">
@@ -408,6 +363,7 @@ class Homepage extends Component {
                       class="d-block w-100 slanted-right"
                       src="https://d3ogvdx946i4sr.cloudfront.net/assets/v2.25.8/img/logo.svg"
                       height="170"
+                      alt={"bookdepository"}
                     />
                   </div>
                 </div>
@@ -427,6 +383,7 @@ class Homepage extends Component {
                       class="d-block w-100 slanted-left"
                       src="https://www.costco.com/wcsstore/CostcoGLOBALSAS/images/Costco_Logo-1.png"
                       height="170"
+                      alt={"Costco"}
                     />
                   </div>
                   <div class="col-7 p-0 pe-4 projects-grid-text text-end my-auto">
@@ -458,6 +415,7 @@ class Homepage extends Component {
                       class="d-block w-100 slanted-right"
                       src="https://www.betterworldbooks.com/content/images/logos/logo.svg"
                       height="170"
+                      alt={"Betterworld"}
                     />
                   </div>
                 </div>

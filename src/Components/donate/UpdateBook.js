@@ -110,14 +110,6 @@ class UpdateBook extends Component {
               </Button>
             </Form>
           </Modal.Body>
-          {/* <Modal.Footer> */}
-         
-
-
-            {/* <Button variant="primary" onClick={this.props.handleClose}>
-              Save Changes
-            </Button> */}
-          {/* </Modal.Footer> */}
         </Modal>
       </div>
     );

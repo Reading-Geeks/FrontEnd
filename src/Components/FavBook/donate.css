@@ -1,0 +1,162 @@
+.col-3 {
+    padding: 0 !important;
+    margin-bottom: 0% !important;
+  }
+  
+  
+  .wrapperd {
+    height: 300px;
+    width: 654px;
+    margin: 50px auto;
+    border-radius: 7px 7px 7px 7px;
+    /* VIA CSS MATIC https://goo.gl/cIbnS */
+  
+    box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  }
+  
+  .product-imgd {
+    float: left;
+    height: 100%;
+    width: 50%;
+  }
+  
+  .product-imgd img {
+    border-radius: 7px 0 0 7px;
+    width: 60%;
+    height: 100%;
+  }
+  
+  .product-infod {
+    position: relative;
+    height: 100%;
+    width: 70%;
+    margin-left: 30%;
+    border-radius: 0 7px 10px 7px;
+    background-color: #ffffff;
+  }
+  
+  .product-textd {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: justify;
+  }
+  
+  .product-textd h1 {
+    font-size: 1.5rem;
+    text-align: start;
+    color: #474747;
+    width: 100%;
+    height: 50%;
+    max-height: 55px;
+    overflow: hidden;
+    margin: 1% 10%;
+    width: 80%;
+  }
+  
+  .product-textd h1,
+  .product-price-btnd p {
+    font-family: "Bentham", serif;
+  }
+  
+  .product-textd h2 {
+    font-size: 13px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #d2d2d2;
+    letter-spacing: 0.2em;
+    margin: 1% 10%;
+    width: 80%;
+  }
+  
+  .product-textd p {
+    margin: 1% 10%;
+    font-family: "Playfair Display", serif;
+    color: #8d8d8d;
+    line-height: 1.7em;
+    font-size: 15px;
+    font-weight: lighter;
+    overflow: hidden;
+    text-align: justify;
+    width: 80%;
+    height: 124px;
+  }
+
+
+
+
+  .product-price-btnd Button {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    float: left;
+    display: inline-block;
+    margin: 250px 0px 0px 100px;
+    background-color: #ededed !important;
+    transform: translate(-50%, -50%);
+    color: #810000 !important;
+    text-decoration: none;
+    font-size: 2em;
+    display: inline-block;
+    font-family: Montserrat;
+    text-transform: uppercase;
+    padding: 0 3rem;
+    height: 1.8em;
+    border: 2px solid #810000 !important;
+    transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+  }
+  .product-price-btnd Button::before {
+    
+    background-color: #ededed;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: black !important;
+    color: black !important;
+    transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1),
+      left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+  
+    z-index: -1;
+  }
+  .product-price-btnd Button::after {
+    
+    content: "";
+    display: inline-block;
+    background-image: url("../../Assets/white-arrow-png-41947.png");
+    position: absolute;
+    top: 0;
+    left: calc(100% - 3em);
+    transform: scale(0.8);
+    right: 3em;
+    bottom: 0;
+    background-size: 2em;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+  }
+  .product-price-btnd Button:hover {
+    background-color: #ededed;
+    padding: 0.05em 3.5em 0.08em 0.5em;
+    height: 1.8em;
+    color: black !important;
+    border: 2px solid black !important;
+  }
+  .product-price-btnd Button:hover::before {
+    left: calc(100% - 3em);
+    right: 0;
+    transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1),
+      left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+  }
+  .product-price-btnd Button:hover::after {
+    right: 0;
+    transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+  }
+  

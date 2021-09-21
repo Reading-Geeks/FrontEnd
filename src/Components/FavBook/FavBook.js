@@ -2,9 +2,10 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import {Form,Modal,Button,Card} from "react-bootstrap/";
+import { Form, Modal, Button } from "react-bootstrap/";
 import RenderData from "./RenderData";
 import RenderDonate from "./RenderDonate";
+import "./favBook.css";
 class FavBook extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,7 @@ class FavBook extends React.Component {
       obj: [],
       finishedBooks: "",
       categoriesOfInterest: "",
+      image: "",
     };
   }
 
@@ -28,6 +30,7 @@ class FavBook extends React.Component {
             email: email,
             finishedBooks: "finishedBooks",
             categoriesOfInterest: "finishedBooks",
+            image: this.state.image,
           };
 
           axios
@@ -37,6 +40,7 @@ class FavBook extends React.Component {
                 obj: result.data,
                 finishedBooks: result.data[0].finishedBooks,
                 categoriesOfInterest: result.data[0].categoriesOfInterest,
+                image: result.data[0].image,
               });
             })
             .catch((err) => {
@@ -47,6 +51,7 @@ class FavBook extends React.Component {
             obj: result.data,
             finishedBooks: result.data[0].finishedBooks,
             categoriesOfInterest: result.data[0].categoriesOfInterest,
+            image: result.data[0].image,
           });
         }
       })
@@ -71,7 +76,9 @@ class FavBook extends React.Component {
       email: event.target.email.value,
       finishedBooks: event.target.finishedBooks.value,
       categoriesOfInterest: event.target.categoriesOfInterest.value,
+      image: event.target.image.value,
     };
+    // console.log(obj)
     axios
       .put(`http://localhost:3333/updateUser/${this.state.obj[0]._id}`, obj)
       .then((result) => {
@@ -80,7 +87,9 @@ class FavBook extends React.Component {
           showFlag: false,
           finishedBooks: result.data[0].finishedBooks,
           categoriesOfInterest: result.data[0].categoriesOfInterest,
+          image: result.data[0].image,
         });
+        console.log(this.state.image);
       })
       .catch((err) => {
         console.log("Error in updating");
@@ -91,20 +100,35 @@ class FavBook extends React.Component {
     const { user } = this.props.auth0;
     return (
       <>
-        <Card>
-          <Card.Body>
-            <Card.Title></Card.Title>
-            <Card.Text>Name: {user.name}</Card.Text>
-            <Card.Text>Email: {user.email}</Card.Text>
-            <Card.Text>Finished Books: {this.state.finishedBooks}</Card.Text>
-            <Card.Text>
-              Categories of Interest: {this.state.categoriesOfInterest}
-            </Card.Text>
-            <Button variant="warning" onClick={this.showUpdateFormModal}>
-              Update
-            </Button>{" "}
-          </Card.Body>
-        </Card>
+        <div className="wrapper">
+          <div className="product-img">
+            <img
+              src={this.state.image}
+              height="420"
+              width="327"
+              alt="description "
+            />
+          </div>
+          {/* {console.log(this.state.image)} */}
+
+          <div className="product-info">
+            <div className="product-text">
+              <h1> {user.name}</h1>
+              <h2>{user.email}</h2>
+              <p>
+                Harvest Vases are a reinterpretation
+                <br /> of peeled fruits and vegetables as
+                <br /> functional objects. The surfaces
+                <br />
+                Finished Books: {this.state.finishedBooks},<br />
+                Categories of Interest: {this.state.categoriesOfInterest}
+              </p>
+              <div className="product-price-btn">
+                <Button onClick={this.showUpdateFormModal}>Update</Button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <Modal show={this.state.showFlag} onHide={this.handleClose}>
           <Modal.Header closeButton>
@@ -123,11 +147,19 @@ class FavBook extends React.Component {
                   <Form.Control type="text" name="email" value={user.email} />
                 </pre>
                 <pre>
+                  URL Image:
+                  <Form.Control
+                    type="text"
+                    name="image"
+                    defaultValue={this.state.imag}
+                  />
+                </pre>
+                <pre>
                   Finished Books
                   <Form.Control
                     type="text"
                     name="finishedBooks"
-                    defaultValue={this.state.obj.finishedBooks}
+                    defaultValue={this.state.finishedBooks}
                   />
                 </pre>
                 <pre>
@@ -135,7 +167,7 @@ class FavBook extends React.Component {
                   <Form.Control
                     type="text"
                     name="categoriesOfInterest"
-                    defaultValue={this.state.obj.categoriesOfInterest}
+                    defaultValue={this.state.categoriesOfInterest}
                   />
                 </pre>
               </Modal.Body>
@@ -148,8 +180,8 @@ class FavBook extends React.Component {
             </Form>
           </Modal.Footer>
         </Modal>
-        <RenderData />
         <RenderDonate />
+        <RenderData />
       </>
     );
   }

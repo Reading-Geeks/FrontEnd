@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Auth0Provider } from "@auth0/auth0-react";
 import { withAuth0 } from "@auth0/auth0-react";
 import AddForm from "./AddForm";
 import AddBookCard from "./AddBookCard";
@@ -18,7 +17,7 @@ class Donate extends Component {
       description: "",
       category: "",
       author: "",
-      image:"",
+      image: "",
       publishedDate: "",
       id: "",
       searchBooks: [],
@@ -27,7 +26,7 @@ class Donate extends Component {
   }
 
   newBook = () => {
-    this.read()
+    this.read();
   };
 
   showUpdateForm = (item) => {
@@ -55,13 +54,11 @@ class Donate extends Component {
     ])
 
       .then(([finalresult, favdonateres]) => {
-        
         if (!isAuthenticated || favdonateres?.data?.length === 0)
           return this.setState({ booksArray: finalresult.data });
         else {
-          
           const searchBooks = [...finalresult.data];
-         
+
           searchBooks.filter(({ title }, i) => {
             const newFav = favdonateres.data.filter(
               ({ title: favId }) => favId === title
@@ -123,7 +120,6 @@ class Donate extends Component {
     axios
       .delete(url)
       .then((result) => {
-    
         this.read();
       })
       .catch((err) => console.log("Error while deleting the data"));
@@ -147,7 +143,6 @@ class Donate extends Component {
     axios
       .post(`http://localhost:3333/addDonateData`, booksArray1)
       .then((result) => {
-      
         this.read();
       })
       .catch((err) => {
@@ -158,12 +153,9 @@ class Donate extends Component {
   /*----------------------------------------------------------------------------------------------------------------- */
 
   render() {
-    const { user } = this.props.auth0;
-   
     return (
       <div>
-        <AddForm newBook={this.newBook}
-        read={this.read} />
+        <AddForm newBook={this.newBook} read={this.read} />
 
         <h2 className="donatedBooks"><u>Donated Books:</u></h2>
 
