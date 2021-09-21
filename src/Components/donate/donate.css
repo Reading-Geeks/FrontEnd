@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap");
 
-* {
+/* * {
   background-color: #eeebdd;
   box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
   margin: 0 auto;
   width: 98%;
-}
+} */
 
 .formDiv {
   display: flex;
@@ -38,7 +38,7 @@ body {
     text-align: center;
     line-height: 1.4;
 }
-b{
+.b{
     color: #810000;
 }
 .p-2 {
@@ -68,7 +68,7 @@ b{
 }
 
 /*-----------------------------------------Donate Button------------------------------------------*/
-.submit {
+.submitDonate {
   background-color: #eeebdd;
   transform: translate(-50%, -50%);
   color: #810000 !important;
@@ -84,7 +84,7 @@ b{
   margin-top: 40px;
   margin-left: 50%;
 }
-.submit::before {
+.submitDonate::before {
   background-color: #eeebdd;
   content: "";
   display: inline-block;
@@ -100,7 +100,7 @@ b{
 
   z-index: -1;
 }
-.submit::after {
+.submitDonate::after {
   content: "";
   display: inline-block;
   background-image: url("./image/white-arrow-png-41947.png");
@@ -115,20 +115,20 @@ b{
   background-position: center;
   transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
 }
-.submit:hover {
+.submitDonate:hover {
   background-color: #eeebdd;
   padding: 0.05em 3.5em 0.08em 0.5em;
   height: 1.8em;
   color: #810000 !important;
   border: 2px solid #810000 !important;
 }
-.submit:hover::before {
+.submitDonate:hover::before {
   left: calc(100% - 3em);
   right: 0;
   transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1),
     left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
 }
-.submit:hover::after {
+.submitDonate:hover::after {
   right: 0;
   transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
 }

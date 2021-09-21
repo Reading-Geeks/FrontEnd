@@ -49,7 +49,8 @@ class AddForm extends Component {
       <div className="d-flex flex-column mb-3">
         <h1 className="firstSentence">
           Instead of throwing out your old books or recycling them,{" "}
-          <b>DONATE</b> them so they can be read and enjoyed again.
+          <b className="b">DONATE</b> them so they can be read and enjoyed
+          again.
         </h1>
         <img
           src={image13}
@@ -58,9 +59,10 @@ class AddForm extends Component {
         />
 
         <h2 className="secondSentence">
-          Your used books make a big difference in other people's <b>minds</b>.
-          <pre /> No matter how big or small, but your <b>donations</b> are
-          needed and appreciated.
+          Your used books make a big difference in other people's{" "}
+          <b className="b">minds</b>.
+          <pre /> No matter how big or small, but your{" "}
+          <b className="b">donations</b> are needed and appreciated.
           <pre />
         </h2>
         <h4 className="secondSentence">
@@ -116,7 +118,7 @@ class AddForm extends Component {
               </Form.Text>
             </Form.Group>
             <Form.Group>
-              <Button className="submit" variant="primary" type="submit">
+              <Button className="submitDonate" variant="primary" type="submit">
                 Donate <span />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
