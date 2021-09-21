@@ -99,12 +99,7 @@ export class Footer extends Component {
                     <h6 class="text-muted bold-text">
                       <b>Support Email</b>
                     </h6>
-                    <small>
-                      <span>
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                      </span>{" "}
-                      readinggeeks301@gmail.com
-                    </small>
+                    <small>readinggeeks301@gmail.com</small>
                   </div>
                 </div>
               </div>
