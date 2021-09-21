@@ -24,7 +24,7 @@ class Header extends Component {
         <Link to="/donate">Donate</Link>
 
         {isAuthenticated ? (
-          <Link to="/FavBook">MY Books</Link>
+          <Link to="/FavBook">My Books</Link>
         ) : (
           console.log("Please Sign In")
         )}

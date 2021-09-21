@@ -9,7 +9,7 @@ import Donate from "./Components/donate/Donate";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Homepage from "./Components/Homepage";
 import FavBook from "./Components/FavBook/FavBook";
-import About from "./Components/abotus/About";
+import About from "./Components/AboutUs/About";
 import Footer from "./Components/footer/Footer";
 function App() {
   return (
