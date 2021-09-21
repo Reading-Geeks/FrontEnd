@@ -77,13 +77,15 @@ class About extends Component {
   render() {
     return (
       <>
-      
         <Card className="text-center">
-       
-          <Card.Header   style={{ fontFamily:"Times New Roman",fontWeight:"bold" }}  >Our Mission</Card.Header>
+          <Card.Header
+            style={{ fontFamily: "Times New Roman", fontWeight: "bold" }}
+          >
+            Our Mission
+          </Card.Header>
           <Card.Body>
             <Card.Title></Card.Title>
-            <Card.Text style={{ fontFamily:"Times New Roman" , fontSize:25  }} >
+            <Card.Text style={{ fontFamily: "Times New Roman", fontSize: 25 }}>
               Our main purpose is to spread the awareness and show the
               importance of reading. And make it easier to exchange books among
               community member to have the oppurtunity to read a great books.
@@ -93,10 +95,14 @@ class About extends Component {
         </Card>
 
         <Card className="text-center">
-          <Card.Header  style={{ fontFamily:"Times New Roman",fontWeight:"bold" }}  >Our Vision</Card.Header>
+          <Card.Header
+            style={{ fontFamily: "Times New Roman", fontWeight: "bold" }}
+          >
+            Our Vision
+          </Card.Header>
           <Card.Body>
             <Card.Title></Card.Title>
-            <Card.Text style={{ fontFamily:"Times New Roman" , fontSize:25 }} >
+            <Card.Text style={{ fontFamily: "Times New Roman", fontSize: 25 }}>
               We are aiming to expand our activity, and start making an events
               that are related to reading in schools in order to introduce how
               the reading is important and interesting to children.
