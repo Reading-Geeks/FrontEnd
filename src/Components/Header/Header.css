@@ -32,11 +32,12 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  height: 15vh;
   background-image: var(--header-liner-gradient);
   /* background-color: var(--header-bg-color); */
   width: 100%;
   top: 0;
-  z-index: 999;
+  z-index: 8;
 }
 .nav a {
   text-decoration: none;
@@ -46,12 +47,26 @@ body {
 .nav a:hover {
   color: var(--btn-light-red-a-bg-color);
 }
-.logo {
-  width: 10%;
-  height: 8rem;
-  border-radius: 50%;
+.nav-left {
+  position: relative;
+  transform: scale(0.6);
 }
-.login-btn {
+.nav-left .logo {
+  transform: translate(40%, -8%);
+  width: 62%;
+  height: 4rem;
+  /* border-radius: 50%; */
+}
+.nav-left h1 {
+  font-size: 2.5rem;
+  color: var(--main-bg-color);
+}
+.nav-left span {
+  position: absolute;
+  bottom: -30px;
+  left: 80px;
+}
+.nav-left h1 .login-btn {
   background: #d3d3d3;
   color: #2c2c2c;
   cursor: pointer;

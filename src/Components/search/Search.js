@@ -9,10 +9,12 @@ class Search extends Component {
   getSearchResult = (search) => {
     const { isAuthenticated } = this.props.auth0;
     Promise.all([
-      axios.get(`http://localhost:3333/search?q=${search}`),
+      // axios.get(`http://localhost:3333/search?q=${search}`),
+      axios.get(`https://reading-geeks.herokuapp.com/search?q=${search}`),
       isAuthenticated &&
         axios.get(
-          `http://localhost:3333/readData?email=${this.props.auth0.user.email}`
+          // `http://localhost:3333/readData?email=${this.props.auth0.user.email}`
+          `https://reading-geeks.herokuapp.com/readData?email=${this.props.auth0.user.email}`
         ),
     ])
       .then(([search, favRes]) => {
@@ -34,7 +36,8 @@ class Search extends Component {
   };
   addToFav = (object) => {
     axios
-      .post(`http://localhost:3333/addData`, object)
+      // .post(`http://localhost:3333/addData`, object)
+      .post(`https://reading-geeks.herokuapp.com/addData`, object)
       .then((_) => {
         this.getSearchResult(this.state.searchTerm);
       })
@@ -43,27 +46,35 @@ class Search extends Component {
   render() {
     return (
       <>
-        <div class="box">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              this.getSearchResult(e.target.search.value);
-              this.setState({ searchTerm: e.target.search.value });
-            }}
-          >
-            <input
-              type="text"
-              class="input"
-              name="search"
-              onMouseOutCapture={(e) => {
-                e.target.value = "";
-              }}
-            />
-          </form>
-          <i class="fas fa-search"></i>
+        <div>
+          <div className="search--form-container">
+            {/* <img src={heroImage} alt="hero img" /> */}
+            <div className="box">
+              <form
+                onMouseLeave={(e) => {
+                  e.target.style.width = "50rem";
+                }}
+                className="search--form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  this.getSearchResult(e.target.search.value);
+                  this.setState({ searchTerm: e.target.search.value });
+                }}
+              >
+                <input
+                  type="text"
+                  className="input"
+                  name="search"
+                  onMouseOutCapture={(e) => {
+                    e.target.style.width = "100%";
+                  }}
+                />
+              </form>
+              <i className="fas fa-search"></i>
+            </div>
+          </div>
         </div>
-
-        <Row className="my-card g-4" xs={1} md={5}>
+        <Row className="my-card g-4" xs={1} md={2}>
           <RenderCards
             searchBooks={this.state.searchBooks}
             addToFav={this.addToFav}

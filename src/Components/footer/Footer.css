@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik&display=swap");
+
+:root {
+  --main-bg-color: #eeebdd;
+  --header-bg-color: #302c2c;
+  --btn-light-red-a-bg-color: #411818;
+  --btn-light-red-bg-color: #ce1212;
+  --btn-dark-red-bg-color: #810000;
+  --btn-login-bg-color: #eeebdd;
+  --btn-logout-bg-color: #eeebdd;
+  --header-liner-gradient: linear-gradient(
+    90deg,
+    rgba(50, 1, 8, 1) 6%,
+    rgba(164, 36, 34, 1) 29%,
+    rgba(171, 62, 25, 1) 64%,
+    rgba(120, 62, 71, 1) 100%
+  );
+}
+.row--0margin {
+  margin: 0 !important;
+}
+.container-fluid {
+  overflow: hidden;
+  margin-top: 250px;
+  background: var(--header-liner-gradient);
+  color: var(--main-bg-color) !important;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+small {
+  font-size: calc(
+    12px + (15 - 12) * ((100vw - 360px) / (1600 - 360))
+  ) !important;
+}
+
+.bold-text {
+  color: #989c9e !important;
+}
+
+.mt-55 {
+  margin-top: 2rem 0 !important;
+}
+
+h3 {
+  font-size: calc(
+    34px + (40 - 34) * ((100vw - 360px) / (1600 - 360))
+  ) !important;
+}
+
+.social {
+  font-size: 21px !important;
+}
+
+.rights {
+  font-size: calc(
+    10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))
+  ) !important;
+}
+.social--image {
+  height: 48px;
+  width: 48px;
+}
+.list-unstyled a {
+  text-decoration: none;
+  color: var(--main-bg-color);
+  transform: scale(1.7);
+}
+.list-unstyled li a:hover {
+  color: var(--btn-light-red-a-bg-color);
+}
+.class--footer {
+  height: 60%;
+}
