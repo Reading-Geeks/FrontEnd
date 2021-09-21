@@ -11,7 +11,8 @@ class Donate extends Component {
     super(props);
     this.state = {
       booksArray: [],
-      // showCard: false,
+      otherBooks: [],
+      userBooks: [],
       showModal: false,
       title: "",
       description: "",
@@ -21,7 +22,6 @@ class Donate extends Component {
       publishedDate: "",
       id: "",
       searchBooks: [],
-      // searchTerm: "" ,
     };
   }
 
@@ -54,26 +54,35 @@ class Donate extends Component {
     ])
 
       .then(([finalresult, favdonateres]) => {
+        console.log(finalresult, favdonateres);
         if (!isAuthenticated || favdonateres?.data?.length === 0)
           return this.setState({ booksArray: finalresult.data });
         else {
           const searchBooks = [...finalresult.data];
-
+          let newFav;
           searchBooks.filter(({ title }, i) => {
-            const newFav = favdonateres.data.filter(
+            newFav = favdonateres.data.filter(
               ({ title: favId }) => favId === title
             );
             return newFav.length > 0
               ? searchBooks.splice(i, 1, ...newFav)
               : null;
           });
-
-          this.setState({ booksArray: searchBooks });
+          const otherBooks = finalresult.data.filter(({ email }) => {
+            return email !== this.props.auth0.user.email ? true : false;
+          });
+          const userBooks = finalresult.data.filter(({ email }) => {
+            return email === this.props.auth0.user.email ? true : false;
+          });
+          this.setState({
+            booksArray: searchBooks,
+            otherBooks,
+            userBooks,
+          });
         }
       })
       .catch((err) => console.error(err));
   };
-
 
   componentDidMount = () => {
     this.read();
@@ -99,7 +108,6 @@ class Donate extends Component {
     };
     const url = `http://localhost:3333/donate/${this.state.id}`;
     // const url = `https://reading-geeks.herokuapp.com/donate/${this.state.id}`;
-    console.log("url", url);
     axios
       .put(url, obj)
       .then((result) => {
@@ -153,14 +161,27 @@ class Donate extends Component {
   /*----------------------------------------------------------------------------------------------------------------- */
 
   render() {
+    console.log("otherBooks", this.state.otherBooks);
+    console.log("userBooks", this.state.userBooks);
     return (
       <div>
         <AddForm newBook={this.newBook} read={this.read} />
-
-        <h2 className="donatedBooks"><u>Donated Books:</u></h2>
-
+        <h2 className="donatedBooks">
+          <u>Donated Books:</u>
+        </h2>
+        {this.state.userBooks.length > 0 ? (
+          <div
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: "2rem",
+            }}
+          >
+            Other Books:
+          </div>
+        ) : null}
         <Row xs={1} md={2} className="g-4">
-          {this.state.booksArray.map((item) => {
+          {this.state?.otherBooks?.map((item) => {
             return (
               <AddBookCard
                 item={item}
@@ -171,7 +192,32 @@ class Donate extends Component {
             );
           })}
         </Row>
-
+        <hr />
+        {this.state.userBooks.length > 0 ? (
+          <div
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: "2rem",
+            }}
+          >
+            Your Books:
+          </div>
+        ) : null}
+        <Row xs={1} md={2} className="g-4">
+          {this.state.userBooks.length > 0
+            ? this.state.userBooks.map((item) => {
+                return (
+                  <AddBookCard
+                    item={item}
+                    showUpdateForm={this.showUpdateForm}
+                    deleteBook={this.deleteBook}
+                    addDonateToFav={this.addDonateToFav}
+                  />
+                );
+              })
+            : null}
+        </Row>
         <UpdateBook
           showModal={this.state.showModal}
           handleClose={this.handleClose}

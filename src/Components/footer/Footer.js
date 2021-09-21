@@ -53,8 +53,10 @@ export class Footer extends Component {
                     <h6 class="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5">
                       <b>ADDRESS</b>
                     </h6>
-                    <p class="mb-1">605, RATAN ICON BUILDING</p>
-                    <p>SEAWOODS SECTOR</p>
+                    <p class="mb-1">
+                      Luminus Technical University College (LTUC)
+                    </p>
+                    <p>Airport Rd., Bridge</p>
                   </div>
                 </div>
                 <div class="row ">

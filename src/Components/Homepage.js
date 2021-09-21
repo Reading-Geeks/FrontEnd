@@ -10,7 +10,7 @@ import img6 from "./assests/f.jpg";
 import img7 from "./assests/g.jpg";
 import img8 from "./assests/h.jpg";
 
-import { Card, Col, Row, Container } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import axios from "axios";
 
 class Homepage extends Component {
@@ -138,16 +138,26 @@ class Homepage extends Component {
           style={{ marginTop: "100px" }}
         >
           <div className="text-center">
-            <h2 style={{ color: "#E51B23", fontSize: "50px", fontWeight: "bold" }}>
+            <h2
+              style={{ color: "#E51B23", fontSize: "50px", fontWeight: "bold" }}
+            >
               THE{" "}
               <span
-                style={{ color: "#E51B23", fontSize: "50px", fontWeight: "bold" }}
+                style={{
+                  color: "#E51B23",
+                  fontSize: "50px",
+                  fontWeight: "bold",
+                }}
               >
                 BEST
               </span>{" "}
               SELLER{" "}
               <span
-                style={{ color: "#E51B23", fontSize: "50px", fontWeight: "bold" }}
+                style={{
+                  color: "#E51B23",
+                  fontSize: "50px",
+                  fontWeight: "bold",
+                }}
               >
                 BOOKS
               </span>
@@ -162,23 +172,33 @@ class Homepage extends Component {
           </h1>
         </div>
 
-        <div className="cardSlid" >{this.mapStateToCards()}</div>
+        <div className="cardSlid">{this.mapStateToCards()}</div>
         <div
           className="container"
           id="projects-text-section"
           style={{ marginBottom: "100px", marginTop: "100px" }}
         >
           <div className="text-center">
-            <h2 style={{ color: "#E51B23", fontSize: "50px", fontWeight: "bold" }}>
+            <h2
+              style={{ color: "#E51B23", fontSize: "50px", fontWeight: "bold" }}
+            >
               Reading{" "}
               <span
-                style={{ color: "#E51B23", fontSize: "50px", fontWeight: "bold" }}
+                style={{
+                  color: "#E51B23",
+                  fontSize: "50px",
+                  fontWeight: "bold",
+                }}
               >
                 changes
               </span>{" "}
               your{" "}
               <span
-                style={{ color: "#E51B23", fontSize: "50px", fontWeight: "bold" }}
+                style={{
+                  color: "#E51B23",
+                  fontSize: "50px",
+                  fontWeight: "bold",
+                }}
               >
                 life
               </span>
@@ -202,33 +222,19 @@ class Homepage extends Component {
                   <div style={{ borderRadius: "20px" }} className="card-front">
                     <div className="card-front__tp card-front__tp--ski">
                       <h1>👨‍⚕️</h1>
-                      <h2 className="card-front__heading">
-                        Reading Health
-                      </h2>
 
-                    </div>
-                    <div className="card-front__bt">
-                      <p style={{ color: "#082032", textAlign: "center" }} className="card-front__text-view card-front__text-view--ski">
-                        Research shows that regular reading
-                      </p>
-                    </div>
-                  </div>
-                  <div className="card-back">
-                    {/* <video className="video__container" autoPlay muted loop>
-                    <source className="video__media" src="https://player.vimeo.com/external/195913085.sd.mp4?s=7c12f7a83de62a8900fd2ae049297070b9bc8a54&profile_id=164&oauth2_token_id=574477611" type="video/mp4" />
-                  </video> */}
-                    <img className="d-block w-100" src="https://img.wattpad.com/01473c3e2e6cc157094459f8507c2daed8d3d569/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f4a775937443549687a51776755673d3d2d3935373832313931312e313633376433613962666537613139303430393237313830383736302e676966" alt="First slide" height="310" />
-                  </div>
                 </div>
               </div>
               <div className="inside-page">
                 <div className="inside-page__container">
+
                   <p style={{ color: "#082032", fontWeight: "bold", textAlign: "left" }} className="inside-page__text">
                     📕 improves brain connectivity.<br />
                     📕   increases your vocabulary and comprehension.<br />
                     📕   empowers you to empathize with other people.<br />
                     📕         aids in sleep readiness.<br />
                     📕          lowers blood pressure and heart rate.
+
                   </p>
                 </div>
               </div>
@@ -245,6 +251,7 @@ class Homepage extends Component {
                       <h2 className="card-front__heading">
                         Continuity of reading
                       </h2>
+
                       <p className="card-front__text-price">
 
                       </p>
@@ -262,10 +269,12 @@ class Homepage extends Component {
                     <img className="d-block w-100" src="https://64.media.tumblr.com/4f43f5b358e470dbac4e710a09de22a4/f88826b3b3a43e79-9b/s400x600/ce11c861769d95ba402867dc593b9b8a576f03d6.gifv" alt="First slide" height="310" />
 
                   </div>
+
                 </div>
               </div>
               <div className="inside-page">
                 <div className="inside-page__container">
+
 
                   <p style={{ color: "#082032", fontWeight: "bold", textAlign: "left" }} className="inside-page__text">
                     📝 A person who reads everyday gets better at it over
@@ -274,6 +283,7 @@ class Homepage extends Component {
                     can even improve memory and critical thinking skills.
                     And activities like reading have been linked to a
                     lower risk
+
                   </p>
                 </div>
               </div>
@@ -290,6 +300,7 @@ class Homepage extends Component {
                       <h2 className="card-front__heading">
                         Develop a Reading Habit
                       </h2>
+
                       <p className="card-front__text-price">
 
                       </p>
@@ -308,11 +319,14 @@ class Homepage extends Component {
 
 
                   </div>
+
                 </div>
               </div>
               <div className="inside-page">
                 <div className="inside-page__container">
+
                   <p style={{ color: "#082032", fontWeight: "bold", textAlign: "left" }} className="inside-page__text">
+
                     📕 Set a goal.
                     <br />
                     📕 Schedule a time for reading.
@@ -333,7 +347,9 @@ class Homepage extends Component {
           </section>
         </section>
 
-        <br /><br /><br />
+        <br />
+        <br />
+        <br />
       </>
     );
   }
