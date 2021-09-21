@@ -61,24 +61,25 @@ class AddForm extends Component {
           Instead of throwing out your old books or recycling them,{" "}
           <b className="b">DONATE</b> them so they can be read and enjoyed again.
         </h1>
-        <img
-          src={image13}
-          className="img-fluid shadow-4"
-          className="responsiveImage"
-          alt="..."
-        />
-
-        <h2 className="secondSentence">
-          Your used books make a big difference in other people's <b className="b">minds</b>.
-          <pre /> No matter how big or small, but your{" "}
-          <b className="b">donations</b> are needed and appreciated.
-          <pre />
-        </h2>
         <h4 className="secondSentence">
           {" "}
           Just fill out the form below with the required information of your
           book!
         </h4>
+        {/* <img
+          src={image13}
+          className="img-fluid shadow-4"
+          className="responsiveImage"
+          alt="..."
+        /> */}
+
+        {/* <h2 className="secondSentence">
+          Your used books make a big difference in other people's <b className="b">minds</b>.
+          <pre /> No matter how big or small, but your{" "}
+          <b className="b">donations</b> are needed and appreciated.
+          <pre />
+        </h2> */}
+        
         <div className="formDiv">
           <Form onSubmit={this.addBook} className="p-2">
             <h2>Book Donation Form</h2>
@@ -127,7 +128,7 @@ class AddForm extends Component {
               </Form.Text>
             </Form.Group>
             <Form.Group>
-              <Button className="submitDonate" variant="primary" type="submit">
+              <Button className="submitDonate" variant="danger" type="submit">
                 Donate <span />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

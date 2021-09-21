@@ -76,6 +76,8 @@ class Donate extends Component {
       })
       .catch((err) => console.error(err));
   };
+
+
   componentDidMount = () => {
     this.read();
   };
@@ -163,7 +165,9 @@ class Donate extends Component {
         <AddForm newBook={this.newBook}
         read={this.read} />
 
-        <Row xs={1} md={5} className="g-4">
+        <h2 className="donatedBooks"><u>Donated Books:</u></h2>
+
+        <Row xs={1} md={2} className="g-4">
           {this.state.booksArray.map((item) => {
             return (
               <AddBookCard
