@@ -100,8 +100,8 @@ class FavBook extends React.Component {
     const { user } = this.props.auth0;
     return (
       <>
-        <div className="wrapper">
-          <div className="product-img">
+        <div className="wrapperf">
+          <div className="product-imgf">
             <img
               src={this.state.image}
               height="420"
@@ -111,8 +111,8 @@ class FavBook extends React.Component {
           </div>
           {/* {console.log(this.state.image)} */}
 
-          <div className="product-info">
-            <div className="product-text">
+          <div className="product-infof">
+            <div className="product-textf">
               <h1> {user.name}</h1>
               <h2>{user.email}</h2>
               <p>
@@ -123,7 +123,7 @@ class FavBook extends React.Component {
                 Finished Books: {this.state.finishedBooks},<br />
                 Categories of Interest: {this.state.categoriesOfInterest}
               </p>
-              <div className="product-price-btn">
+              <div className="product-price-btnf">
                 <Button onClick={this.showUpdateFormModal}>Update</Button>
               </div>
             </div>
