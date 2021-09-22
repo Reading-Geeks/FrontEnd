@@ -69,7 +69,7 @@ body {
   bottom: -30px;
   left: 80px;
 }
-.nav-left h1 .login-btn {
+.login-btn {
   background: #d3d3d3;
   color: #2c2c2c;
   cursor: pointer;
