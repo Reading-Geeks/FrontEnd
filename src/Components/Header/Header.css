@@ -33,7 +33,7 @@ body {
   margin-bottom: 0;
   list-style: none;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   height: 15vh;
   background-image: var(--header-liner-gradient);
@@ -53,6 +53,7 @@ body {
 .nav-left {
   position: relative;
   transform: scale(0.6);
+  margin-left: -30px;
 }
 .nav-left .logo {
   transform: translate(40%, -8%);

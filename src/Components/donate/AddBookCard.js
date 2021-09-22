@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, Col } from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 
 class AddBookCard extends Component {

@@ -23,16 +23,17 @@
   overflow: hidden;
   margin-top: 250px;
   background: var(--header-liner-gradient);
+
   color: var(--main-bg-color) !important;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-small {
+/* small {
   font-size: calc(
     12px + (15 - 12) * ((100vw - 360px) / (1600 - 360))
   ) !important;
-}
+} */
 
 .bold-text {
   color: #989c9e !important;
@@ -40,12 +41,6 @@ small {
 
 .mt-55 {
   margin-top: 2rem 0 !important;
-}
-
-h3 {
-  font-size: calc(
-    34px + (40 - 34) * ((100vw - 360px) / (1600 - 360))
-  ) !important;
 }
 
 .social {
@@ -71,4 +66,37 @@ h3 {
 }
 .class--footer {
   height: 60%;
+}
+.py-5 {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+.footer--flex {
+  display: flex !important;
+  background: var(--header-liner-gradient) !important;
+  color: var(--main-bg-color) !important;
+  height: 28vh !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+}
+.ele {
+  margin-top: 50px !important;
+}
+.ele--1 {
+  align-self: flex-start;
+  margin-top: 70px !important;
+}
+.ele--3 {
+  align-self: flex-start;
+  margin-top: 70px !important;
+}
+.ele--4 {
+  align-self: flex-start;
+  margin-left: -103px;
+}
+.footer--icons {
+  width: 70%;
+  margin: 1rem auto;
 }

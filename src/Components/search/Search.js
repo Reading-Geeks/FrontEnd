@@ -63,7 +63,7 @@ class Search extends Component {
               >
                 <input
                   type="text"
-                  className="input"
+                  className="input--search"
                   name="search"
                   onMouseOutCapture={(e) => {
                     e.target.style.width = "100%";
