@@ -52,12 +52,20 @@ class Donate extends Component {
           `http://localhost:3333/readDonateData?email=${this.props.auth0.user.email}`
         ),
     ])
-
       .then(([finalresult, favdonateres]) => {
-        console.log(finalresult, favdonateres);
-        if (!isAuthenticated || favdonateres?.data?.length === 0)
-          return this.setState({ booksArray: finalresult.data });
-        else {
+        if (!isAuthenticated || favdonateres?.data?.length === 0) {
+          const otherBooks = finalresult.data.filter(({ email }) => {
+            return email !== this.props.auth0.user.email ? true : false;
+          });
+          const userBooks = finalresult.data.filter(({ email }) => {
+            return email === this.props.auth0.user.email ? true : false;
+          });
+          this.setState({
+            booksArray: finalresult.data,
+            otherBooks,
+            userBooks,
+          });
+        } else {
           const searchBooks = [...finalresult.data];
           let newFav;
           searchBooks.filter(({ title }, i) => {
@@ -68,10 +76,10 @@ class Donate extends Component {
               ? searchBooks.splice(i, 1, ...newFav)
               : null;
           });
-          const otherBooks = finalresult.data.filter(({ email }) => {
+          const otherBooks = searchBooks.filter(({ email }) => {
             return email !== this.props.auth0.user.email ? true : false;
           });
-          const userBooks = finalresult.data.filter(({ email }) => {
+          const userBooks = searchBooks.filter(({ email }) => {
             return email === this.props.auth0.user.email ? true : false;
           });
           this.setState({
