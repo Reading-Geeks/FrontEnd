@@ -54,16 +54,8 @@ class Donate extends Component {
     ])
       .then(([finalresult, favdonateres]) => {
         if (!isAuthenticated || favdonateres?.data?.length === 0) {
-          const otherBooks = finalresult.data.filter(({ email }) => {
-            return email !== this.props.auth0.user.email ? true : false;
-          });
-          const userBooks = finalresult.data.filter(({ email }) => {
-            return email === this.props.auth0.user.email ? true : false;
-          });
           this.setState({
             booksArray: finalresult.data,
-            otherBooks,
-            userBooks,
           });
         } else {
           const searchBooks = [...finalresult.data];
@@ -169,33 +161,52 @@ class Donate extends Component {
   /*----------------------------------------------------------------------------------------------------------------- */
 
   render() {
+    console.log(this.state.booksArray);
     return (
       <div>
         <AddForm newBook={this.newBook} read={this.read} />
-        {this.state.userBooks.length > 0 ? (
-          <div
-            style={{
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: "2rem",
-            }}
-          >
-            Other Books
-          </div>
+
+        <h2
+          style={{
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: "2rem",
+          }}
+        >
+          Donated Books
+        </h2>
+
+        {!this.props.auth0.isAuthenticated && this.state.booksArray.length > 0 && (
+          <Row xs={1} md={2} className="g-4">
+            {this.state?.booksArray?.map((item) => {
+              return (
+                <AddBookCard
+                  item={item}
+                  showUpdateForm={this.showUpdateForm}
+                  deleteBook={this.deleteBook}
+                  addDonateToFav={this.addDonateToFav}
+                />
+              );
+            })}
+          </Row>
+        )}
+        {this.props.auth0.isAuthenticated && this.state.userBooks.length > 0 ? (
+          <>
+            <Row xs={1} md={2} className="g-4">
+              {this.state?.otherBooks?.map((item) => {
+                return (
+                  <AddBookCard
+                    item={item}
+                    showUpdateForm={this.showUpdateForm}
+                    deleteBook={this.deleteBook}
+                    addDonateToFav={this.addDonateToFav}
+                  />
+                );
+              })}
+            </Row>
+          </>
         ) : null}
-        <Row xs={1} md={2} className="g-4">
-          {this.state?.otherBooks?.map((item) => {
-            return (
-              <AddBookCard
-                item={item}
-                showUpdateForm={this.showUpdateForm}
-                deleteBook={this.deleteBook}
-                addDonateToFav={this.addDonateToFav}
-              />
-            );
-          })}
-        </Row>
-        <hr />
+
         {this.state.userBooks.length > 0 ? (
           <div
             style={{
@@ -204,7 +215,7 @@ class Donate extends Component {
               fontSize: "2rem",
             }}
           >
-            Your Books
+            My Books
           </div>
         ) : null}
         <Row xs={1} md={2} className="g-4">
