@@ -88,14 +88,14 @@ i {
 
 .product-textA h1 {
   font-size: 1.5rem;
-  text-align: justify;
+  /* text-align: justify; */
   color: #474747;
-  width: 100%;
+  width: 85%;margin: auto;
   height: 50%;
   max-height: 55px;
   overflow: hidden;
-  margin: 1% 10%;
-  width: 100%;
+  /* margin: 1% 10%; */
+  /* width: 100%; */
   /* padding-left: 20px; */
 }
 
@@ -104,17 +104,16 @@ i {
 }
 
 .product-textA p {
-  margin: 1% 10%;
+  width: 85%;margin: auto;
+  text-align: center;
   font-family: "Playfair Display", serif;
   color: #8d8d8d;
   line-height: 1.7em;
   font-size: 15px;
   font-weight: lighter;
   overflow: hidden;
-  text-align: justify;
-  width: 60%;
   height: 124px;
-  padding-left: 30px;
+  
 }
 
 .product-price-btnA Button {
