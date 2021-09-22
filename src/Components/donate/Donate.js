@@ -169,14 +169,9 @@ class Donate extends Component {
   /*----------------------------------------------------------------------------------------------------------------- */
 
   render() {
-    console.log("otherBooks", this.state.otherBooks);
-    console.log("userBooks", this.state.userBooks);
     return (
       <div>
         <AddForm newBook={this.newBook} read={this.read} />
-        {/* <h2 className="donatedBooks">
-          <u>Donated Books:</u>
-        </h2> */}
         {this.state.userBooks.length > 0 ? (
           <div
             style={{

@@ -157,6 +157,9 @@
 
 /*----------------------------------------Update Button----------------------------------------*/
 .updateBtn {
+  position: absolute;
+    top: 87%;
+    left: 43%;
   background-color: #ededed;
   transform: translate(-50%, -50%);
   color: #810000 !important;
@@ -170,8 +173,7 @@
   border: 2px solid #810000 !important;
   transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
   /* margin-left: 30%; */
-  margin-left: -5%;
-  margin-top: 58%;
+ 
 }
 .updateBtn::before {
   background-color: #ededed;
@@ -205,10 +207,10 @@
   transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
 }
 .updateBtn:hover {
-  background-color: #ededed;
+  background-color: #ededed !important;
   padding: 0.05em 3.5em 0.08em 0.5em;
   height: 1.8em;
-  color: #0274b6;
+  color: #0274b6 !important;
   border: 2px solid #0274b6 !important;
 }
 .updateBtn:hover::before {
@@ -225,6 +227,9 @@
 
 /*----------------------------------------Delete Button----------------------------------------*/
 .deleteBtn {
+  position: absolute;
+    top: 87%;
+    left: 76%;
   background-color: #ededed !important;
   transform: translate(-50%, -50%);
   color: #810000 !important;
@@ -237,8 +242,7 @@
   height: 1.8em;
   border: 2px solid #810000 !important;
   transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
-  margin-left: 6%;
-  margin-top: 58%;
+  
 }
 .deleteBtn::before {
   background-color: #ededed !important;
@@ -293,6 +297,9 @@
 
 /*----------------------------------------Favorite Button----------------------------------------*/
 .favoriteBtn {
+  position: absolute;
+    top: 87%;
+    left: 76%;
   background-color: #ededed !important;
   transform: translate(-50%, -50%);
   color: #810000 !important;
@@ -305,8 +312,8 @@
   height: 1.8em;
   border: 2px solid #810000 !important;
   transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
-  margin-left: -5%;
-  margin-top: 57%;
+  /* margin-left: -5%;
+  margin-top: 57%; */
 
 }
 .favoriteBtn::before {

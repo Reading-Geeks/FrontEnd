@@ -6,16 +6,14 @@ class UpdateBook extends Component {
     return (
       <div>
         <Modal show={this.props.showModal} onHide={this.props.handleClose}>
-          {/* <Modal.Header closeButton>
-            <Modal.Title>Edit Your Book</Modal.Title>
-          </Modal.Header> */}
+      
           <Modal.Body>
             <Button
               variant="secondary"
               onClick={this.props.handleClose}
               className="closeBtn"
             >
-              {/* Discard */}
+              
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -96,7 +94,7 @@ class UpdateBook extends Component {
                 type="submit"
                 onClick={this.props.handleClose}
               >
-                {/* Save <span /> */}
+                
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
