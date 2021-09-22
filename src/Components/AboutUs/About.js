@@ -6,6 +6,7 @@ import AboutUsPage from "./AboutUsPage";
 import Row from "react-bootstrap/Row";
 import UpdateFromModel from "./UpdateFromModel";
 import "./AboutUs.css";
+import MissionAndVission from "./../../Assets/debby-hudson-i6ouFfkruL8-unsplash.jpg";
 class About extends Component {
   constructor(props) {
     super(props);
@@ -78,42 +79,12 @@ class About extends Component {
   render() {
     return (
       <>
-        <Card
-          className="AboutUsCard"
-          border="danger"
-          style={{ width: "65rem" }}
-        >
-          <Card.Body>
-            <Card.Title>
-              <h2>Our Mission</h2>
-            </Card.Title>
-            <Card.Text style={{ fontFamily: "Times New Roman", fontSize: 25 }}>
-              Our main purpose is to spread the awareness and show the
-              importance of reading. And make it easier to exchange books among
-              community member to have the oppurtunity to read a great books.
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer></Card.Footer>
-        </Card>
-
-        <Card
-          className="AboutUsCard"
-          border="danger"
-          style={{ width: "65rem" }}
-        >
-          <Card.Body>
-            <Card.Title>
-              <h2>Our Vision</h2>
-            </Card.Title>
-            <Card.Text style={{ fontFamily: "Times New Roman", fontSize: 25 }}>
-              We are aiming to expand our activity, and start making an events
-              that are related to reading in schools in order to introduce how
-              the reading is important and interesting to children.
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer></Card.Footer>
-        </Card>
-
+        <div className="MissionAndVision">
+          <img src={MissionAndVission} alt="Mission and Vision" />
+        </div>
+        <div className="developer">
+          <h1>Developers Team</h1>
+        </div>
         <Row Row xs={1} md={2} className="g-4">
           {this.state.FavAboutArr.map((item) => {
             return (
