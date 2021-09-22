@@ -47,8 +47,8 @@ i {
 
 .wrapperA {
   height: 300px;
-  width: 654px;
-  margin: 50px auto;
+  width: 620px;
+  margin: 50px;
   border-radius: 7px 7px 7px 7px;
   /* VIA CSS MATIC https://goo.gl/cIbnS */
 
@@ -63,58 +63,45 @@ i {
 }
 
 .product-imgA img {
+  object-fit: cover;
   border-radius: 7px 0 0 7px;
-  width: 60%;
+  width: 100%;
   height: 100%;
 }
 
 .product-infoA {
   position: relative;
   height: 100%;
-  width: 70%;
-  margin-left: 30%;
+  width: 50%;
   border-radius: 0 7px 10px 7px;
   background-color: #ffffff;
+  float: right;
 }
 
 .product-textA {
   position: absolute;
   margin: 0;
-  padding: 0;
   width: 100%;
-  text-align: justify;
+  text-align: center;
+  padding-top: 20px;
 }
 
 .product-textA h1 {
   font-size: 1.5rem;
-  text-align: start;
+  text-align: justify;
   color: #474747;
   width: 100%;
   height: 50%;
   max-height: 55px;
   overflow: hidden;
   margin: 1% 10%;
-  width: 80%;
+  width: 100%;
+  /* padding-left: 20px; */
 }
 
-.product-price-btnA {
-  margin-left: 80%;
-  margin-top: 20%;
-}
 .product-price-btnA p {
   font-family: "Bentham", serif;
 }
-
-/* .product-textA h2 {
-  font-size: 13px;
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: #d2d2d2;
-  letter-spacing: 0.2em;
-  margin: 1% 10%;
-  width: 80%;
-} */
 
 .product-textA p {
   margin: 1% 10%;
@@ -125,6 +112,78 @@ i {
   font-weight: lighter;
   overflow: hidden;
   text-align: justify;
-  width: 80%;
+  width: 60%;
   height: 124px;
+  padding-left: 30px;
+}
+
+.product-price-btnA Button {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  float: left;
+  display: inline-block;
+  margin: 70px 0px 0px 210px;
+  background-color: #ededed !important;
+  transform: translate(-50%, -50%);
+  color: #810000 !important;
+  text-decoration: none;
+  font-size: 2em;
+  display: inline-block;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  padding: 0 3rem;
+  height: 1.8em;
+  border: 2px solid #810000 !important;
+  transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.product-price-btnA Button::before {
+  background-color: #ededed;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: rgb(82, 82, 194) !important;
+  color: rgb(82, 82, 194) !important;
+  transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+
+  z-index: -1;
+}
+.product-price-btnA Button::after {
+  content: "";
+  display: inline-block;
+  background-image: url("../../Assets/white-arrow-png-41947.png");
+  position: absolute;
+  top: 0;
+  left: calc(100% - 3em);
+  transform: scale(0.8);
+  right: 3em;
+  bottom: 0;
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.product-price-btnA Button:hover {
+  background-color: #ededed;
+  padding: 0.05em 3.5em 0.08em 0.5em;
+  height: 1.8em;
+  color: rgb(82, 82, 194) !important;
+  border: 2px solid rgb(82, 82, 194) !important;
+}
+.product-price-btnA Button:hover::before {
+  left: calc(100% - 3em);
+  right: 0;
+  transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.product-price-btnA Button:hover::after {
+  right: 0;
+  transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
 }
