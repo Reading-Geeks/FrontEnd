@@ -3,7 +3,6 @@ import { Form, Button, Card } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import "./donate.css";
-import image13 from "./image/book13-cropped.jpg";
 import image6 from "./image/book11.jpg";
 
 class AddForm extends Component {
@@ -31,7 +30,7 @@ class AddForm extends Component {
       publishedDate: e.target.publishedDate.value,
       email: email,
     };
-    console.log(obj);
+   
 
     axios
       .post(url, obj)
@@ -57,11 +56,6 @@ class AddForm extends Component {
           Just fill out the form below with the required information of your
           book!
         </h4>
-        {/* <img
-          src={image13}
-          className="img-fluid shadow-4 responsiveImage"
-          alt="..."
-        /> */}
        
         <div className="formDiv">
           <Form onSubmit={this.addBook} className="p-2">
