@@ -33,7 +33,8 @@ class Homepage extends Component {
     return this.state.bestSeller?.map((item) => {
       return (
         <>
-          <div className="cardItem">
+        
+          <div className="cardItem2">
             <Col>
               <Card style={{ width: "15rem" }}>
                 <Card.Img
@@ -45,7 +46,7 @@ class Homepage extends Component {
                   }
                 />
                 <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
+                  <Card.Title style={{fontSize:"18px" }}>{item.title}</Card.Title>
                   <Card.Text>{item.authors || "No authors"}</Card.Text>
                 </Card.Body>
               </Card>
@@ -164,15 +165,10 @@ class Homepage extends Component {
             </h2>
           </div>
 
-          <h1
-            className="lead w-75 text-center mx-auto"
-            style={{ fontSize: "20px", fontWeight: "bold" }}
-          >
-            best sellers list for the month
-          </h1>
         </div>
-
+        <div className="ca">
         <div className="cardSlid">{this.mapStateToCards()}</div>
+        </div>
         <div
           className="container"
           id="projects-text-section"
@@ -182,7 +178,7 @@ class Homepage extends Component {
             <h2
               style={{ color: "#E51B23", fontSize: "50px", fontWeight: "bold" }}
             >
-              Reading{" "}
+              READING{" "}   
               <span
                 style={{
                   color: "#E51B23",
@@ -190,9 +186,9 @@ class Homepage extends Component {
                   fontWeight: "bold",
                 }}
               >
-                changes
+               CAN CHANGE
               </span>{" "}
-              your{" "}
+              YOUR{" "}
               <span
                 style={{
                   color: "#E51B23",
@@ -200,18 +196,10 @@ class Homepage extends Component {
                   fontWeight: "bold",
                 }}
               >
-                life
+                LIFE
               </span>
             </h2>
           </div>
-
-          <h1
-            className="lead w-75 text-center mx-auto"
-            style={{ fontSize: "20px", fontWeight: "bold" }}
-          >
-            Reading increases your own creativity, sometimes sparking other
-            ideas in your life
-          </h1>
         </div>
         <section className="card-area">
           <section className="card-section">
@@ -346,7 +334,7 @@ class Homepage extends Component {
                         style={{ color: "#082032", textAlign: "center" }}
                         className="card-front__text-view card-front__text-view--camping"
                       >
-                        How to Develop a Reading Habit ?
+                      &nbsp;  How to Develop a Reading Habit ?
                       </p>
                     </div>
                   </div>
