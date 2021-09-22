@@ -148,8 +148,8 @@ i {
   left: 0;
   right: 100%;
   bottom: 0;
-  background: rgb(82, 82, 194) !important;
-  color: rgb(82, 82, 194) !important;
+  background:  #0274b6 !important;
+  color: #0274b6 !important;
   transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1),
     left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
 
@@ -174,8 +174,8 @@ i {
   background-color: #ededed;
   padding: 0.05em 3.5em 0.08em 0.5em;
   height: 1.8em;
-  color: rgb(82, 82, 194) !important;
-  border: 2px solid rgb(82, 82, 194) !important;
+  color: #0274b6 !important;
+  border: 2px solid #0274b6 !important;
 }
 .product-price-btnA Button:hover::before {
   left: calc(100% - 3em);

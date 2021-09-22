@@ -22,7 +22,7 @@ class FavBook extends React.Component {
     const { user } = this.props.auth0;
     const email = user.email;
     axios
-      .get(`http://localhost:3333/userInfo?email=${email}`)
+      .get(`https://reading-geeks.herokuapp.com/userInfo?email=${email}`)
       .then((result) => {
         if (result.data.length === 0) {
           const obj = {
@@ -34,7 +34,7 @@ class FavBook extends React.Component {
           };
 
           axios
-            .post(`http://localhost:3333/addinfo`, obj)
+            .post(`https://reading-geeks.herokuapp.com/addinfo`, obj)
             .then((result) => {
               this.setState({
                 obj: result.data,
@@ -80,7 +80,7 @@ class FavBook extends React.Component {
     };
     
     axios
-      .put(`http://localhost:3333/updateUser/${this.state.obj[0]._id}`, obj)
+      .put(`https://reading-geeks.herokuapp.com/updateUser/${this.state.obj[0]._id}`, obj)
       .then((result) => {
         this.setState({
           obj: result.data,
@@ -130,12 +130,12 @@ class FavBook extends React.Component {
           </div>
         </div>
 
-        <Modal show={this.state.showFlag} onHide={this.handleClose}>
-          <Modal.Header closeButton>
+        <Modal  show={this.state.showFlag} onHide={this.handleClose}>
+          <Modal.Header className="usermodal" closeButton>
             <Modal.Title>User Information</Modal.Title>
           </Modal.Header>
           <Modal.Footer>
-            <Form onSubmit={this.updateUser}>
+            <Form onSubmit={this.updateUser} className="formInsideModalf">
               <Modal.Body>
                 <Form.Label></Form.Label>
                 <pre>
@@ -171,12 +171,21 @@ class FavBook extends React.Component {
                   />
                 </pre>
               </Modal.Body>
-              <Button variant="primary" type="submit">
-                Submit
+              <Button className="submitb" variant="primary" type="submit">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  fill="currentColor"
+                  class="bi bi-check2"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                </svg>
               </Button>
-              <Button variant="secondary" onClick={this.handleClose}>
+              {/* <Button variant="secondary" onClick={this.handleClose}>
                 Close
-              </Button>
+              </Button> */}
             </Form>
           </Modal.Footer>
         </Modal>

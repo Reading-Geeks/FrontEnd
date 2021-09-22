@@ -142,3 +142,86 @@
   right: 0;
   transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
 }
+
+.formInsideModalf {
+  margin: 0%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Cairo", sans-serif;
+  color: #810000;
+  border: dotted black 1px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: #eeebdd;
+  /* box-shadow: 0 -3px 15px -5px black, 0 0px 2px -3px black; */
+}
+.modal-footer{padding: 0;}
+
+
+.submitb {
+  background-color: #eeebdd !important;
+  transform: translate(-50%, -50%);
+  color: #810000 !important;
+  text-decoration: none;
+  font-size: 2em;
+  display: inline-block;
+  font-family: "Cairo", sans-serif;
+  text-transform: uppercase;
+  padding: 0 3rem;
+  height: 1.8em;
+  border: 2px solid #810000 !important;
+  transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+  margin-top: 40px;
+  margin-left: 50%;
+}
+.submitb::before {
+  background-color: #eeebdd !important;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #810000 !important;
+  color: #810000 !important;
+  transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+
+  z-index: -1;
+}
+.submitb::after {
+  content: "";
+  display: inline-block;
+  background-image: url("../../Assets/white-arrow-png-41947.png");
+  position: absolute;
+  top: 0;
+  left: calc(100% - 3em);
+  transform: scale(0.8);
+  right: 3em;
+  bottom: 0;
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.submitb:hover {
+  background-color: #eeebdd !important;
+  padding: 0.05em 3.5em 0.08em 0.5em;
+  height: 1.8em;
+  color: #810000 !important;
+  border: 2px solid #810000 !important;
+}
+.submitb:hover::before {
+  left: calc(100% - 3em);
+  right: 0;
+  transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.submitb:hover::after {
+  right: 0;
+  transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.usermodal{ background-color: #eeebdd !important;}
+.g-4dfav{width: 95%;margin: auto;}

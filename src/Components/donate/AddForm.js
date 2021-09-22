@@ -19,7 +19,7 @@ class AddForm extends Component {
     e.preventDefault();
     const { user } = this.props.auth0;
     const email = user?.email;
-    const url = `http://localhost:3333/donate`;
+    const url = `https://reading-geeks.herokuapp.com/donate`;
 
     const obj = {
       title: e.target.title.value,

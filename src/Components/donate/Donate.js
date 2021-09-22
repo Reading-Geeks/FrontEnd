@@ -46,10 +46,10 @@ class Donate extends Component {
   read = () => {
     const { isAuthenticated } = this.props.auth0;
     Promise.all([
-      axios.get(`http://localhost:3333/donate`),
+      axios.get(`https://reading-geeks.herokuapp.com/donate`),
       isAuthenticated &&
         axios.get(
-          `http://localhost:3333/readDonateData?email=${this.props.auth0.user.email}`
+          `https://reading-geeks.herokuapp.com/readDonateData?email=${this.props.auth0.user.email}`
         ),
     ])
       .then(([finalresult, favdonateres]) => {
@@ -106,7 +106,7 @@ class Donate extends Component {
       email: email,
       // id: this.state.id,
     };
-    const url = `http://localhost:3333/donate/${this.state.id}`;
+    const url = `https://reading-geeks.herokuapp.com/donate/${this.state.id}`;
     // const url = `https://reading-geeks.herokuapp.com/donate/${this.state.id}`;
     axios
       .put(url, obj)
@@ -123,7 +123,7 @@ class Donate extends Component {
     const { user } = this.props.auth0;
     const email = user?.email;
 
-    const url = `http://localhost:3333/donate/${id}?email=${email}`;
+    const url = `https://reading-geeks.herokuapp.com/donate/${id}?email=${email}`;
 
     axios
       .delete(url)
@@ -149,7 +149,7 @@ class Donate extends Component {
     const booksArray1 = { ...booksArray, takenemail: email, isFav: true };
     console.log(booksArray1);
     axios
-      .post(`http://localhost:3333/addDonateData`, booksArray1)
+      .post(`https://reading-geeks.herokuapp.com/addDonateData`, booksArray1)
       .then((result) => {
         this.read();
       })
@@ -161,7 +161,6 @@ class Donate extends Component {
   /*----------------------------------------------------------------------------------------------------------------- */
 
   render() {
-    console.log(this.state.booksArray);
     return (
       <div>
         <AddForm newBook={this.newBook} read={this.read} />

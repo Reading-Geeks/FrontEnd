@@ -18,7 +18,7 @@ class Homepage extends Component {
   getBestSeller = async () => {
     try {
       const { data: bestSeller } = await axios.get(
-        `http://localhost:3333/search/best-seller`
+        `https://reading-geeks.herokuapp.com/search/best-seller`
       );
       console.log(bestSeller);
       this.setState({ bestSeller });
