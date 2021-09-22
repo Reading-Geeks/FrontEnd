@@ -18,7 +18,7 @@ class RenderData extends React.Component {
     const email = user.email;
 
     axios
-      .get(`http://localhost:3333/readData?email=${email}`)
+      .get(`https://reading-geeks.herokuapp.com/readData?email=${email}`)
       .then((result) => {
         this.setState({
           obj: result.data,
@@ -33,7 +33,7 @@ class RenderData extends React.Component {
     const email = user.email;
 
     axios
-      .delete(`http://localhost:3333/removeData/${id}?email=${email}`)
+      .delete(`https://reading-geeks.herokuapp.com/removeData/${id}?email=${email}`)
       .then((result) => {
         this.setState({
           obj: result.data,
@@ -48,7 +48,7 @@ class RenderData extends React.Component {
     return (
       <>
        {this.state.obj.length!==0?<h2 className="myh" >My favorite Books</h2>:null}
-        <Row xs={1} md={2} className="g-4d">
+        <Row xs={1} md={2} className="g-4dfav">
           {this.state.obj.map((item) => {
             return (
               <>

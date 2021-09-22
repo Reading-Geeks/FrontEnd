@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withAuth0 } from "@auth0/auth0-react";
-import Card from "react-bootstrap/Card";
 import AboutUsPage from "./AboutUsPage";
 import Row from "react-bootstrap/Row";
 import UpdateFromModel from "./UpdateFromModel";
@@ -23,7 +22,7 @@ class About extends Component {
   }
   componentDidMount = () => {
     axios
-      .get(`http://localhost:3333/aboutus`)
+      .get(`https://reading-geeks.herokuapp.com/aboutus`)
       .then((result) => {
         this.setState({
           FavAboutArr: result.data,
@@ -65,7 +64,7 @@ class About extends Component {
       PersonId: this.state.PersonId,
     };
     axios
-      .put(`http://localhost:3333/updateAbotUs/${this.state.PersonId}`, obj)
+      .put(`https://reading-geeks.herokuapp.com/updateAbotUs/${this.state.PersonId}`, obj)
       .then((result) => {
         this.setState({
           FavAboutArr: result.data,

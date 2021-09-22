@@ -16,7 +16,7 @@ class RenderDonate extends React.Component {
     const { user } = this.props.auth0;
     const email = user.email;
     axios
-      .get(`http://localhost:3333/readDonateData?email=${email}`)
+      .get(`https://reading-geeks.herokuapp.com/readDonateData?email=${email}`)
       .then((result) => {
         this.setState({
           obj: result.data,
@@ -30,7 +30,7 @@ class RenderDonate extends React.Component {
     const { user } = this.props.auth0;
     const email = user.email;
     axios
-      .delete(`http://localhost:3333/removeDonateData/${id}?email=${email}`)
+      .delete(`https://reading-geeks.herokuapp.com/removeDonateData/${id}?email=${email}`)
       .then((result) => {
         this.setState({
           obj: result.data,
@@ -44,7 +44,7 @@ class RenderDonate extends React.Component {
     return (
       <>
       {this.state.obj.length!==0?<h2 className="myh">My Books</h2>:null}
-        <Row xs={1} md={2} className="g-4d">
+        <Row xs={1} md={2} className="g-4dfav">
           {this.state.obj.map((item) => {
             return (
               <>
