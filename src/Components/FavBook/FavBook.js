@@ -78,7 +78,7 @@ class FavBook extends React.Component {
       categoriesOfInterest: event.target.categoriesOfInterest.value,
       image: event.target.image.value,
     };
-    // console.log(obj)
+    
     axios
       .put(`http://localhost:3333/updateUser/${this.state.obj[0]._id}`, obj)
       .then((result) => {
@@ -89,7 +89,7 @@ class FavBook extends React.Component {
           categoriesOfInterest: result.data[0].categoriesOfInterest,
           image: result.data[0].image,
         });
-        console.log(this.state.image);
+      
       })
       .catch((err) => {
         console.log("Error in updating");
@@ -109,7 +109,7 @@ class FavBook extends React.Component {
               alt="description "
             />
           </div>
-          {/* {console.log(this.state.image)} */}
+
 
           <div className="product-infof">
             <div className="product-textf">
@@ -151,7 +151,7 @@ class FavBook extends React.Component {
                   <Form.Control
                     type="text"
                     name="image"
-                    defaultValue={this.state.imag}
+                    defaultValue={this.state.image}
                   />
                 </pre>
                 <pre>

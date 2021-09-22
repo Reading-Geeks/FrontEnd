@@ -74,7 +74,7 @@ class Search extends Component {
             </div>
           </div>
         </div>
-        <Row className="my-card g-4" xs={1} md={2}>
+        <Row className="my-card g-4 search--card" xs={1} md={2}>
           <RenderCards
             searchBooks={this.state.searchBooks}
             addToFav={this.addToFav}

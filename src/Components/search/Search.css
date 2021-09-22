@@ -1,7 +1,7 @@
-.my-card {
+.search--card {
   transform: scaleX(0.95);
   width: 100%;
-  margin: -25px;
+  margin: 1px !important;
 }
 .submit {
   position: absolute;

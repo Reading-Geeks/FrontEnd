@@ -18,7 +18,7 @@ class Header extends Component {
             Reading<span>Geeks</span>
           </h1>
         </div>
-        <Link to="/">Home Page</Link>
+        <Link to="/">Home</Link>
         <Link to="/search">Search</Link>
 
         <Link to="/donate">Donate</Link>

@@ -1,12 +1,14 @@
-.AboutUsCard {
+.MissionAndVision img {
+  width: 1600px;
+  height: 633px;
+}
+
+.developer {
   text-align: center;
-  margin: 2%;
-  height: 50%;
-  position: relative;
-  box-shadow: inset;
-  margin-left: 18%;
-  border-radius: 5%;
-  border-color: crimson;
-  font-size: large;
-  font-weight: bold;
+  margin: 50px;
+  color: rgb(107, 18, 35);
+}
+
+.g-4 {
+  margin: 75px;
 }
