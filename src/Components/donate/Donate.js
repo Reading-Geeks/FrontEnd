@@ -174,9 +174,9 @@ class Donate extends Component {
     return (
       <div>
         <AddForm newBook={this.newBook} read={this.read} />
-        <h2 className="donatedBooks">
+        {/* <h2 className="donatedBooks">
           <u>Donated Books:</u>
-        </h2>
+        </h2> */}
         {this.state.userBooks.length > 0 ? (
           <div
             style={{
@@ -185,7 +185,7 @@ class Donate extends Component {
               fontSize: "2rem",
             }}
           >
-            Other Books:
+            Other Books
           </div>
         ) : null}
         <Row xs={1} md={2} className="g-4">
@@ -209,7 +209,7 @@ class Donate extends Component {
               fontSize: "2rem",
             }}
           >
-            Your Books:
+            Your Books
           </div>
         ) : null}
         <Row xs={1} md={2} className="g-4">

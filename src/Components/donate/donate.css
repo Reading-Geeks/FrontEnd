@@ -32,7 +32,7 @@
 .p-2 {
   margin-top: 50px;
   margin-bottom: 100px;
-  margin-left: 3.5%;
+  margin-left: 7%;
   width: 42%;
   border: dotted black 1px;
   font-family: "Cairo", sans-serif;
@@ -43,7 +43,9 @@
 
 .img-thumbnail {
   margin-top: 50px;
-  margin-left: 300px;
+  margin-right: 7%;
+  margin-left: 200px;
+
   display: flex;
   height: 46rem;
   width: 28rem;
@@ -123,16 +125,11 @@
 
 /*--------------------------------------------------------------------------------------------*/
 
-.donatedBooks{
-  color: #1B1717;
+.donatedBooks {
+  color: #1b1717;
   margin-left: 5%;
   font-family: "Cairo", sans-serif;
 }
-
-
-
-
-
 
 .formInsideModal {
   margin-left: 10.5%;
@@ -173,8 +170,8 @@
   border: 2px solid #810000 !important;
   transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
   /* margin-left: 30%; */
-  margin-left: -10%;
-  margin-top: 43%;
+  margin-left: -5%;
+  margin-top: 58%;
 }
 .updateBtn::before {
   background-color: #ededed;
@@ -211,7 +208,7 @@
   background-color: #ededed;
   padding: 0.05em 3.5em 0.08em 0.5em;
   height: 1.8em;
-  color: #0274b6 ;
+  color: #0274b6;
   border: 2px solid #0274b6 !important;
 }
 .updateBtn:hover::before {
@@ -225,7 +222,6 @@
   transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
 }
 /*--------------------------------------------------------------------------------------------*/
-
 
 /*----------------------------------------Delete Button----------------------------------------*/
 .deleteBtn {
@@ -242,8 +238,7 @@
   border: 2px solid #810000 !important;
   transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
   margin-left: 6%;
-  margin-top: 43%;
-  /* margin-bottom: -10% !important; */
+  margin-top: 58%;
 }
 .deleteBtn::before {
   background-color: #ededed !important;
@@ -310,8 +305,9 @@
   height: 1.8em;
   border: 2px solid #810000 !important;
   transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
-  margin-left: -10%;
-  margin-top: 45%;
+  margin-left: -5%;
+  margin-top: 57%;
+
 }
 .favoriteBtn::before {
   background-color: #ededed !important;
@@ -363,16 +359,13 @@
 }
 
 /*--------------------------------------------------------------------------------------------*/
-.cardBody{
+.cardBody {
   display: flex;
   width: 100%;
   flex-direction: column;
 }
 
 /*---------------------------------------Book Card--------------------------------------------*/
-
-
-
 
 .wrapper {
   height: 300px;
@@ -411,12 +404,14 @@
   padding: 0;
   width: 100%;
   text-align: justify;
+  margin-top: 36px;
+
 }
 
 .product-text h1 {
   font-size: 1.5rem;
   text-align: start;
-  color: #474747;
+  color: #1B1717;
   width: 100%;
   height: 50%;
   max-height: 55px;
@@ -444,7 +439,7 @@
 .product-text p {
   margin: 1% 10%;
   font-family: "Playfair Display", serif;
-  color: #8d8d8d;
+  color: #1B1717;
   line-height: 1.7em;
   font-size: 15px;
   font-weight: lighter;
@@ -455,5 +450,3 @@
 }
 
 /*-------------------------------------------------------------------------------------------*/
-
-
